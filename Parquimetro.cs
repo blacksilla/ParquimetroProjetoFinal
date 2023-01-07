@@ -26,7 +26,7 @@ namespace ParquimetroProjetoFinal
             bool parkStatus = Interface.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
             //estados dos menus
-            bool menuAdminActive = true;
+            bool menuAdminActive = false;
             bool menuClientActive = false;
             bool menuMainActive = true;
 
