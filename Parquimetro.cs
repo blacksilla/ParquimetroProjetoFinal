@@ -59,7 +59,11 @@ namespace ParquimetroProjetoFinal
                         switch (input2)
                         {
                             case 0: Environment.Exit(0); break;
-                            case 1: Interface.showZonas(Zona1, Zona2, Zona3); break; 
+                            case 1: //Ver Zonas
+                                Interface.showZonas(Zona1, Zona2, Zona3);
+                                Console.WriteLine("Clique Enter para voltar");
+                                Console.ReadLine();
+                                break; 
                             case 2: /*Ver Histórico*/break;
                             case 3: /*Ver Máquinas*/break;
                             case 4: /*Voltar*/ goto MainMenu;  
