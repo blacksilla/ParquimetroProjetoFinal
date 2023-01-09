@@ -39,8 +39,9 @@ namespace ParquimetroProjetoFinal
             
 
             while (menuMainActive) {
-                
+
                 //escreve o Menu Inicial com a data e hora a que o programa inicia e capta a escolha do utilizador
+                
                 Interface.writeStartMenu(CurrentDate);
                 var input = Interface.returnIndexInput();
 
@@ -108,6 +109,7 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
+                                    Interface.printTicket(CurrentDate);
                                     break; //Estacionar
                                 case 2:
                                     //Ver Zonas

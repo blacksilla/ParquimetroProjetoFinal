@@ -118,7 +118,56 @@ namespace ParquimetroProjetoFinal
         }
 
 
+        //faz a animação de processar e depois imprime o ticket
+        public static void printTicket(DateTime data)
+        {
+            processingAnimation();
+            int waitTime=500;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(@"--------------------------------------------------------------------------");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|         .---------------.                 TICKET DE ESTACIONAMENTO     |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|        /       oLo       \                                             |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|      O/_____/________/____\O              Parque X                     |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|      /__________+__________\                                           |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {data} |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|     \_______________________/     Montante:                            |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|      | _""__|_,-----,_|__""_ |      Matrícula: AA-XX-AA                  |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|      | |     '-----'     | |                                           |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|      '-'                 '-'                                           |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"|                          Obrigado e Boa Viagem!                        |");
+            Thread.Sleep(waitTime);
+            Console.WriteLine(@"__________________________________________________________________________");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadLine();
+            Environment.Exit(0);
+
+        }   
         
+        //animação simples de blocos a empilharem
+        public static void processingAnimation()
+        {
+            Console.Clear();
+            Console.Write("Processando...");
+                for(int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(400);
+                Console.Write(" █ ");
+            }
+            Thread.Sleep(200);
+            Console.Clear();
+        }
 
     }
 }
