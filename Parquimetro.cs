@@ -36,47 +36,72 @@ namespace ParquimetroProjetoFinal
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt());
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt());
 
-            Interface.writeStartMenu(CurrentDate);
-            var input = Interface.returnIndexInput();
+            
 
-            while (true) {
-
-
+            while (menuMainActive) {
                 
-
                 //escreve o Menu Inicial com a data e hora a que o programa inicia e capta a escolha do utilizador
-                
+                Interface.writeStartMenu(CurrentDate);
+                var input = Interface.returnIndexInput();
 
-                
+
+
+
+
+
+
                 switch (input) {
+
                     case 0://sair
+                        menuMainActive = false;
                         Environment.Exit(0);
                         break;
-                    case 1://Administrador
 
-                        Interface.writeAdminMenu();
-                        var input2 = Interface.returnIndexInput();
-                        switch (input2)
+                    case 1://Administrador
+                        menuAdminActive= true;
+                        
+                        while (menuAdminActive)
                         {
-                            case 0: Environment.Exit(0); break;
-                            case 1: //Ver Zonas
-                                Interface.showZonas(Zona1, Zona2, Zona3);
-                                Console.WriteLine("Clique Enter para voltar");
-                                Console.ReadLine();
-                                break; 
-                            case 2: /*Ver Histórico*/break;
-                            case 3: /*Ver Máquinas*/break;
-                            case 4: /*Voltar*/ goto MainMenu;  
+                            Interface.writeAdminMenu();
+                            input = Interface.returnIndexInput();
+                            switch (input)
+                            {
+                                case 0: Environment.Exit(0); break;
+
+                                case 1: //Ver Zonas
+                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    Console.WriteLine("Clique qualquer tecla para voltar");
+                                    input= Interface.returnIndexInput();
+                                    if (input != 4)
+                                        input = 4; break;
+
+
+                                case 2: /*Ver Histórico*/break;
+
+
+                                case 3: /*Ver Máquinas*/break;
+
+
+
+                                case 4: /*Voltar*/menuAdminActive = false;  goto MainMenu;
+
+
+
+                                default:
+                                    Interface.errorMessage();
+                                    break;
+                            }
                         }
                         break;
 
                     case 2: //Cliente
                         menuClientActive = true;
-                        Interface.writeClientMenu();
-                        input2 = Interface.returnIndexInput();
-                        while (true)
+                        
+                        while (menuClientActive)
                         {
-                            switch (input2)
+                            Interface.writeClientMenu();
+                            input = Interface.returnIndexInput();
+                            switch (input)
                             {
 
                                 case 0:
@@ -85,23 +110,27 @@ namespace ParquimetroProjetoFinal
                                 case 1:
                                     break; //Estacionar
                                 case 2:
-                                    /*Ver Zonas*/
+                                    //Ver Zonas
                                     Interface.showZonas(Zona1, Zona2, Zona3);
-                                    Console.WriteLine("Clique Enter para voltar");
-                                    Console.ReadLine();
-                                    //menuMainActive = false;
-                                    break;
-                                    
-                                    
+                                    Console.WriteLine("Clique qualquer tecla para voltar");
+                                    input = Interface.returnIndexInput();
+                                    if (input != 4)
+                                        input = 4; break;
+
+
                                 case 3:
                                     /*Ver Históricos*/
                                     break;
                                 case 4:
                                     /*Voltar*/
+                                    menuClientActive = false;
                                     goto MainMenu;
+                                    
                             }
-                            goto MainMenu;
-                        }  
+                            
+                        }
+                        break;
+
                     case 3: //Opções
                         Console.WriteLine("A fazer");
                         Console.ReadLine();
