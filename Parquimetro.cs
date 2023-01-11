@@ -109,12 +109,30 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
-                                    Interface.printTicket(CurrentDate);
+                                    Interface.writeZonas();
+                                    var inputZonas = Interface.returnIndexInput();
+                                    switch (inputZonas) {
+                                        case 1:
+                                            Interface.printZone(Zona1);
+                                            break;
+                                        case 2:
+                                            Interface.printZone(Zona2);
+                                            break;
+                                        case 3:
+                                            Interface.printZone(Zona3);
+                                            break;
+                                        default:
+                                            Interface.errorMessage();   
+                                            break;
+                                    }
+                                    
+
+                                    //Interface.printTicket(CurrentDate);
                                     break; //Estacionar
                                 case 2:
                                     //Ver Zonas
                                     Interface.showZonas(Zona1, Zona2, Zona3);
-                                    Console.WriteLine("Clique qualquer tecla para voltar");
+                                    Console.WriteLine("Clique Enter para voltar");
                                     input = Interface.returnIndexInput();
                                     if (input != 4)
                                         input = 4; break;
