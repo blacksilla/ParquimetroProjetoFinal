@@ -126,9 +126,9 @@ namespace ParquimetroProjetoFinal
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@"--------------------------------------------------------------------------");
             Thread.Sleep(waitTime);
-            Console.WriteLine(@"|         .---------------.                 TICKET DE ESTACIONAMENTO     |");
+            Console.WriteLine(@"|         .---------------.          TICKET DE ESTACIONAMENTO            |");
             Thread.Sleep(waitTime);
-            Console.WriteLine(@"|        /       oLo       \                                             |");
+            Console.WriteLine(@"|        /   ( ͡° ͜ʖ ͡°)   \                                             |");
             Thread.Sleep(waitTime);
             Console.WriteLine(@"|      O/_____/________/____\O              Parque X                     |");
             Thread.Sleep(waitTime);
