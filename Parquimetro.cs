@@ -77,9 +77,10 @@ namespace ParquimetroProjetoFinal
                                         input = 4; break;
 
 
-                                case 2: /*Ver Histórico*/break;
-
-
+                                case 2: /*Ver Histórico*/
+                                    //MathHelper.returnRandomLicense(); //retorna uma matricula random
+                                    Console.ReadLine();
+                                    break;
                                 case 3: /*Ver Máquinas*/break;
 
 
