@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace ParquimetroProjetoFinal
 {
     //Sou lindo
+
+
     //teste
     //este é o paymentBranch
     //este é o paymentBranch1
@@ -16,7 +18,7 @@ namespace ParquimetroProjetoFinal
         //define o horario de funcionamento da app
         public static bool parkStatus(int hour, int dayOfWeek)
         {
-
+            
             if (dayOfWeek < 6 && hour >= 9 && hour <= 20)
             {
                 return true;
@@ -33,14 +35,18 @@ namespace ParquimetroProjetoFinal
 
         public static void writeStartMenu(DateTime date)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.Clear();
             Console.WriteLine("  _______________________________________ ");
             Console.WriteLine(" |                                       |");
             Console.WriteLine(" |--------      Bem-vindo        --------|");
-            Console.WriteLine(" |--------  Sistema Parquímetro  --------|");
+            Console.WriteLine(" |--------  Sistema Parquimetro  --------|");
+            Console.Write($" |      ");
             Console.ForegroundColor= ConsoleColor.Blue;
-            Console.WriteLine($" |         {date.ToString()}           |");
+            Console.Write($"{date.ToString()}");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("       | \n");
             Console.WriteLine(" |         1. Administrador              |");
             Console.WriteLine(" |         2. Cliente                    |");
             Console.WriteLine(" |         3. Opções                     |");

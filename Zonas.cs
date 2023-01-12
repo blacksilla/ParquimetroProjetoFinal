@@ -43,7 +43,7 @@ namespace ParquimetroProjetoFinal
 
         public static void populateArray(Zonas z)
         {
-
+            
             int[] availableSpots = new int[z.spots];
             Random availability = new Random();
 
