@@ -32,9 +32,9 @@ namespace ParquimetroProjetoFinal
 
 
             //inciar a criação de Zonas
-            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt());
-            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt());
-            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt());
+            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(10, 50));
+            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(10, 50));
+            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(10, 50));
 
             
 

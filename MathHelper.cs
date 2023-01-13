@@ -9,9 +9,9 @@ namespace ParquimetroProjetoFinal
     internal class MathHelper
 
     {
-        public static int returnRandomInt()
+        public static int returnRandomInt(int min, int max)
         {
-            var randomInteiro = new Random().Next(10,50);
+            var randomInteiro = new Random().Next(min,max);
             return randomInteiro;
         }
 
