@@ -46,7 +46,7 @@ namespace ParquimetroProjetoFinal
             Console.ForegroundColor= ConsoleColor.Blue;
             Console.Write($"{date.ToString()}");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("          | \n");
+            Console.Write("           | \n");
             Console.WriteLine(" |         1. Administrador              |");
             Console.WriteLine(" |         2. Cliente                    |");
             Console.WriteLine(" |         3. Opções                     |");
