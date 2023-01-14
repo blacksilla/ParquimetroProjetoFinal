@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 namespace ParquimetroProjetoFinal
 {
     public class Car
@@ -48,7 +49,7 @@ namespace ParquimetroProjetoFinal
             
         }
 
-        public static List<string> returnRandomLicense()
+        public static string returnRandomLicense()
         {
 
             int lengthLetter = 4;
@@ -79,13 +80,17 @@ namespace ParquimetroProjetoFinal
 
             }
 
-            List<string> licensePlate = new List<string>();
-            licensePlate.Add(randomLicense[0]);
-            licensePlate.Add(randomLicense[1]);
-            licensePlate.Add(randomLicense[4]);
-            licensePlate.Add(randomLicense[5]);
-            licensePlate.Add(randomLicense[2]);
-            licensePlate.Add(randomLicense[3]);
+            List<string> licensePlateList = new List<string>();
+            licensePlateList.Add(randomLicense[0]);
+            licensePlateList.Add(randomLicense[1]);
+            licensePlateList.Add(randomLicense[4]);
+            licensePlateList.Add(randomLicense[5]);
+            licensePlateList.Add(randomLicense[2]);
+            licensePlateList.Add(randomLicense[3]);
+
+
+            //return licensePlateList;
+            string licensePlate = randomLicense[0] + randomLicense[1] +"-"+ randomLicense[4] + randomLicense[5] +"-"+ randomLicense[2] + randomLicense[3];
 
             return licensePlate;
 
