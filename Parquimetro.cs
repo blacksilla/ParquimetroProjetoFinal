@@ -36,7 +36,6 @@ namespace ParquimetroProjetoFinal
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(10, 50));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(10, 50));
 
-            
 
             while (menuMainActive) {
 
@@ -44,12 +43,6 @@ namespace ParquimetroProjetoFinal
                 
                 Interface.writeStartMenu(CurrentDate);
                 var input = Interface.returnIndexInput();
-
-
-
-
-
-
 
                 switch (input) {
 
@@ -78,7 +71,10 @@ namespace ParquimetroProjetoFinal
 
 
                                 case 2: /*Ver Histórico*/
-                                    //MathHelper.returnRandomLicense(); //retorna uma matricula random
+
+                                    //zona random com carro random com tempo estacionamento random
+                                    //retorna uma matricula random
+                                    //class Car
                                     Console.ReadLine();
                                     break;
                                 case 3: /*Ver Máquinas*/break;

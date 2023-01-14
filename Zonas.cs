@@ -26,47 +26,25 @@ namespace ParquimetroProjetoFinal
             this.Spots = spots;
         }
 
-
-        
-
-
-
         public int Id { get => id; set => id = value; }
         public double Preco { get => preco; set => preco = value; }
         public int MaxTimeInMs1 { get => MaxTimeInMs; set => MaxTimeInMs = value; }
         public int Spots { get => spots; set => spots = value; }
 
 
-
-
         //criar funcao para popular array com 0s e 1s, disponivel/indisponivel
 
-        public static void populateArray(Zonas z)
+        public static void fillParkingSlots(Zonas zona)
         {
-            
-            int[] availableSpots = new int[z.spots];
-            Random availability = new Random();
+            //lugares disponiveis
+            //z.spots =
 
-            //secalhar ficava interessante fazer um random double para ser x% do parque "disponivel"
-
-            for (int i = 0; i < availableSpots.Length; i++)
+            for (int i = 0; i < zona.spots; i++)
             {
 
-                string state;
-                var available = availability.Next(2);
-                availableSpots[i] = available; //no lugar i, guardar o valor do available
 
-                if (availableSpots[i] == 0)
-                {
-                    state = "Existem {X} lugares disponíveis.";
-                    Console.WriteLine(state);
-                }
-                else
-                {
-                    state = "Sem lugares disponíveis.";
-                    Console.WriteLine(state);
-                }
             }
+
         }
     }
 }
