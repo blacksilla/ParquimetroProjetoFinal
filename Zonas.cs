@@ -36,8 +36,9 @@ namespace ParquimetroProjetoFinal
 
         public static void fillParkingSlots(Zonas zona)
         {
-            //lugares disponiveis
-            //z.spots =
+            int occSpots = MathHelper.returnRandomInt(0, zona.spots/2); //gera aleatoriamente quantos lugares ocupados
+
+            Console.WriteLine($"Lugares ocupados:{occSpots} ");
 
             for (int i = 0; i < zona.spots; i++)
             {

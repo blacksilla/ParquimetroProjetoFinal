@@ -75,6 +75,7 @@ namespace ParquimetroProjetoFinal
                                     //zona random com carro random com tempo estacionamento random
                                     //retorna uma matricula random
                                     //class Car
+                                    Zonas.fillParkingSlots(Zona1);
                                     Console.ReadLine();
                                     break;
                                 case 3: /*Ver Máquinas*/break;
