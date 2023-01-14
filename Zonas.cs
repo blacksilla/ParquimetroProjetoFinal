@@ -44,7 +44,7 @@ namespace ParquimetroProjetoFinal
             for (int i = 0; i < occSpots; i++)
             {
                 cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480)));
-                Console.WriteLine($"Marca:{cars[i].Brand} Matrícula:{cars[i].LicensePlate} Tempo Estacionado:{cars[i].ParkingTime}minutos");
+                Console.WriteLine($"\nMarca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos");
             }
             
                 
