@@ -45,7 +45,7 @@ namespace ParquimetroProjetoFinal
             carBrand.Add("Volkswagen");
             carBrand.Add("Volvo");
 
-            return carBrand[MathHelper.returnRandomInt(0, carBrand.Count - 1)];
+            return carBrand[MathHelper.returnRandomInt(0, carBrand.Count - 1,1)];
             
         }
 

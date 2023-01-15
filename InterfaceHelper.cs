@@ -134,35 +134,74 @@ namespace ParquimetroProjetoFinal
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@"--------------------------------------------------------------------------");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|         .---------------.          TICKET DE ESTACIONAMENTO            |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|        /   ( ͡° ͜ʖ ͡°)   \                                             |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      O/_____/________/____\O              Parque X                     |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      /__________+__________\                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {data} |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|     \_______________________/     Montante:                            |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      | _""__|_,-----,_|__""_ |      Matrícula: AA-XX-AA                  |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      | |     '-----'     | |                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      '-'                 '-'                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|                          Obrigado e Boa Viagem!                        |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"__________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
-            Environment.Exit(0);
 
         }   
-        
+
+        //imprime o parque
+        public static void printPark()
+        {
+            int maxRow = 10;
+
+            //deverá aceitar lista/array contendo os lugares ocupados e disponiveis, ver class ZONAS
+            Console.Clear();
+            Console.WriteLine(@"
++---+---+---+---+---+---+---+---+---+---+
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
++---+---+---+---+---+---+---+---+---+---+
+");
+            Console.WriteLine("A Zona X tem Y lugares disponíveis");
+            Console.WriteLine("Deseja Estacionar? - 1   Voltar - 4");
+
+           
+
+            
+        }
+
         //animação simples de blocos a empilharem
         public static void processingAnimation()
         {

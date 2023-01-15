@@ -32,9 +32,9 @@ namespace ParquimetroProjetoFinal
 
 
             //inciar a criação de Zonas
-            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(10, 50));
-            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(10, 50));
-            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(10, 50));
+            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(1 , 5 , 10));
+            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
+            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
 
 
             while (menuMainActive) {
@@ -107,7 +107,13 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
+                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    Console.ReadLine();
+                                    Interface.printPark();
+                                    Console.ReadLine();
                                     Interface.printTicket(CurrentDate);
+                                    menuClientActive= false;
+                                    goto MainMenu;
                                     break; //Estacionar
                                 case 2:
                                     //Ver Zonas
