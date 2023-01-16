@@ -36,7 +36,7 @@ namespace ParquimetroProjetoFinal
 
         public static void fillParkingSlots(Zonas zona)
         {
-            int occSpots = MathHelper.returnRandomInt(0, zona.spots/2,1); //gera aleatoriamente quantos lugares ocupados
+            int occSpots=0; //variavel guardar quantos lugares ocupados
             List<Car> cars  = new List<Car>();
 
 
@@ -45,18 +45,22 @@ namespace ParquimetroProjetoFinal
             //ciclo para popular com 0s (livres) e 1s (ocupados) os lugares
             for (int i = 0; i < zona.spots; i ++)
             {
-                filledSpots[i] = MathHelper.returnRandomInt(0, 1, 1);
-                Console.WriteLine($"spot {i} = {filledSpots[i]}");
+                filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
+                Console.Write($"spot {i+1} = {filledSpots[i]} || ");
+                if (filledSpots[i] == 1)
+                    occSpots++;
                
             }
-            Console.ReadLine();
 
-            Console.WriteLine("Lugares ocupados: "+ occSpots);
+            Console.WriteLine("Lugares ocupados: " + occSpots);
+            
+
+            
 
             for (int i = 0; i < occSpots; i++)
             {
                 cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480,1)));
-                Console.Write($"\n {i}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos");
+                Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos");
             }
             
 
