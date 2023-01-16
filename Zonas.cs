@@ -39,6 +39,18 @@ namespace ParquimetroProjetoFinal
             int occSpots = MathHelper.returnRandomInt(0, zona.spots/2,1); //gera aleatoriamente quantos lugares ocupados
             List<Car> cars  = new List<Car>();
 
+
+            //lista spots ocupados
+            List<int> filledSpots = new List<int>();
+            //ciclo para popular com 0s (livres) e 1s (ocupados) os lugares
+            for (int i = 0; i < zona.spots; i ++)
+            {
+                filledSpots[i] = MathHelper.returnRandomInt(0, 1, 1);
+                Console.WriteLine($"spot {i} = {filledSpots[i]}");
+               
+            }
+            Console.ReadLine();
+
             Console.WriteLine("Lugares ocupados: "+ occSpots);
 
             for (int i = 0; i < occSpots; i++)

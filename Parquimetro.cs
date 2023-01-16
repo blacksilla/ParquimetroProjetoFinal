@@ -4,7 +4,7 @@ using System.Transactions;
 namespace ParquimetroProjetoFinal
 {
     internal class Parquimetro
-    {
+    {   
         
         
         static void Main(string[] args)
@@ -114,7 +114,7 @@ namespace ParquimetroProjetoFinal
                                     Interface.printTicket(CurrentDate);
                                     menuClientActive= false;
                                     goto MainMenu;
-                                    break; //Estacionar
+                                    //Estacionar
                                 case 2:
                                     //Ver Zonas
                                     Interface.showZonas(Zona1, Zona2, Zona3);
