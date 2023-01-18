@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ParquimetroProjetoFinal
 {
-    internal class Zonas
+     public class Zonas
+
     {
         //criar funcao que desenhe isso na interface - pode ser feito na class da interface
 

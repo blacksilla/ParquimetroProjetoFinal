@@ -36,7 +36,9 @@ namespace ParquimetroProjetoFinal
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
 
-            Ticket.paymentNchange();
+            Ticket.paymentNchange(Zona1);
+
+
 
             while (menuMainActive) {
 
