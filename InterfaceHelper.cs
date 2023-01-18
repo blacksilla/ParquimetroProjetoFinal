@@ -172,6 +172,7 @@ namespace ParquimetroProjetoFinal
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
 
+
         }   
 
         //imprime o parque
@@ -200,6 +201,23 @@ namespace ParquimetroProjetoFinal
            
 
             
+
+        }
+        public static void writeZonas()
+        {
+            Console.Clear();
+            Console.WriteLine("  _______________________________________ ");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" |--------   Escolha uma Zona    --------|");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" |            1. Zona 1                  |");
+            Console.WriteLine(" |            2. Zona 2                  |");
+            Console.WriteLine(" |            3. Zona 3                  |");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" _________________________________________");
+            Console.WriteLine("Escolha a opção pretendida -> ");
+
         }
 
         //animação simples de blocos a empilharem
@@ -215,6 +233,29 @@ namespace ParquimetroProjetoFinal
             Thread.Sleep(200);
             Console.Clear();
         }
+
+        public static void printZone(Zonas z)
+        {
+
+            Console.Clear();
+            Console.WriteLine("  _______________________________________ ");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine($" |--------         Zona {z.Id}        --------|");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine($" |         Preço: {z.Preco}€/hora             |");
+            Console.WriteLine(" |     Tempo Máximo de Estacionamento    |");
+            Console.WriteLine($" |              {z.MaxTimeInMs / 60000} minutos               |");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" |    1.Estacionar         2.Voltar      |");
+            Console.WriteLine(" _________________________________________");
+            Console.WriteLine("Escolha a opção pretendida -> ");
+
+
+            Console.ReadLine();
+        }
+
+
+
 
     }
 }

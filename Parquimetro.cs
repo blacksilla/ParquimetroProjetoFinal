@@ -107,6 +107,7 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
+
                                     Interface.showZonas(Zona1, Zona2, Zona3);
                                     Console.ReadLine();
                                     Interface.printPark();
@@ -115,10 +116,11 @@ namespace ParquimetroProjetoFinal
                                     menuClientActive= false;
                                     goto MainMenu;
                                     //Estacionar
+
                                 case 2:
                                     //Ver Zonas
                                     Interface.showZonas(Zona1, Zona2, Zona3);
-                                    Console.WriteLine("Clique qualquer tecla para voltar");
+                                    Console.WriteLine("Clique Enter para voltar");
                                     input = Interface.returnIndexInput();
                                     if (input != 4)
                                         input = 4; break;

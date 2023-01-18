@@ -15,21 +15,22 @@ namespace ParquimetroProjetoFinal
 
         private int id;
         private double preco;
-        private int MaxTimeInMs;
+        private int MaxTimeInms;
         private int spots;
 
         public Zonas(int id, double preco, int maxTimeInMs, int spots)
         {
             this.Id = id;
             this.Preco = preco;
-            MaxTimeInMs1 = maxTimeInMs;
+            MaxTimeInMs = maxTimeInMs;
             this.Spots = spots;
         }
 
         public int Id { get => id; set => id = value; }
         public double Preco { get => preco; set => preco = value; }
-        public int MaxTimeInMs1 { get => MaxTimeInMs; set => MaxTimeInMs = value; }
+        public int MaxTimeInMs { get => MaxTimeInms; set => MaxTimeInms = value; }
         public int Spots { get => spots; set => spots = value; }
+
 
 
         //criar funcao para popular array com 0s e 1s, disponivel/indisponivel
@@ -66,5 +67,7 @@ namespace ParquimetroProjetoFinal
 
             //tem que retornar a lista para desenhar o parque
         }
+
+
     }
 }
