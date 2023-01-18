@@ -108,7 +108,7 @@ namespace ParquimetroProjetoFinal
                                     break; //sair
                                 case 1:
 
-                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    Interface.writeZonas();
                                     Console.ReadLine();
                                     Interface.printPark();
                                     Console.ReadLine();
