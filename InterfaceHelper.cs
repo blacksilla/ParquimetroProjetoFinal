@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 namespace ParquimetroProjetoFinal
 {
     //Sou lindo
+
+
     //teste
+    //este é o paymentBranch
+    //este é o paymentBranch1
     internal class Interface
     {
         //define o horario de funcionamento da app
         public static bool parkStatus(int hour, int dayOfWeek)
         {
-
+            
             if (dayOfWeek < 6 && hour >= 9 && hour <= 20)
             {
                 return true;
@@ -31,14 +35,18 @@ namespace ParquimetroProjetoFinal
 
         public static void writeStartMenu(DateTime date)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             Console.Clear();
             Console.WriteLine("  _______________________________________ ");
             Console.WriteLine(" |                                       |");
             Console.WriteLine(" |--------      Bem-vindo        --------|");
-            Console.WriteLine(" |--------  Sistema Parquímetro  --------|");
+            Console.WriteLine(" |--------  Sistema Parquimetro  --------|");
+            Console.Write($" |         ");
             Console.ForegroundColor= ConsoleColor.Blue;
-            Console.WriteLine($" |         {date.ToString()}           |");
+            Console.Write($"{date.ToString()}");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("           | \n");
             Console.WriteLine(" |         1. Administrador              |");
             Console.WriteLine(" |         2. Cliente                    |");
             Console.WriteLine(" |         3. Opções                     |");
@@ -126,32 +134,73 @@ namespace ParquimetroProjetoFinal
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@"--------------------------------------------------------------------------");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|         .---------------.          TICKET DE ESTACIONAMENTO            |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|        /   ( ͡° ͜ʖ ͡°)   \                                             |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      O/_____/________/____\O              Parque X                     |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      /__________+__________\                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {data} |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|     \_______________________/     Montante:                            |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      | _""__|_,-----,_|__""_ |      Matrícula: AA-XX-AA                  |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      | |     '-----'     | |                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|      '-'                 '-'                                           |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"|                          Obrigado e Boa Viagem!                        |");
             Thread.Sleep(waitTime);
+            Console.Beep();
             Console.WriteLine(@"__________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
-            Environment.Exit(0);
+
+
+        }   
+
+        //imprime o parque
+        public static void printPark()
+        {
+            int maxRow = 10;
+
+            //deverá aceitar lista/array contendo os lugares ocupados e disponiveis, ver class ZONAS
+            Console.Clear();
+            Console.WriteLine(@"
++---+---+---+---+---+---+---+---+---+---+
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
+  -   -   -   -   -   -   -   -   -   -
+| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
++---+---+---+---+---+---+---+---+---+---+
+");
+            Console.WriteLine("A Zona X tem Y lugares disponíveis");
+            Console.WriteLine("Deseja Estacionar? - 1   Voltar - 4");
+
+           
+
+            
 
         }
         public static void writeZonas()
@@ -168,6 +217,7 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine(" |                                       |");
             Console.WriteLine(" _________________________________________");
             Console.WriteLine("Escolha a opção pretendida -> ");
+
         }
 
         //animação simples de blocos a empilharem

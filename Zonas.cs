@@ -8,9 +8,8 @@ namespace ParquimetroProjetoFinal
 {
     internal class Zonas
     {
-        //criar funcao para popular cada array com 0s e 1s, disponivel/indisponivel
-
         //criar funcao que desenhe isso na interface - pode ser feito na class da interface
+
 
         //falta criar variavel para duracao de tempo de carros random estacionados
 
@@ -27,11 +26,6 @@ namespace ParquimetroProjetoFinal
             this.Spots = spots;
         }
 
-
-        
-
-
-
         public int Id { get => id; set => id = value; }
         public double Preco { get => preco; set => preco = value; }
         public int MaxTimeInMs { get => MaxTimeInms; set => MaxTimeInms = value; }
@@ -39,7 +33,41 @@ namespace ParquimetroProjetoFinal
 
 
 
+        //criar funcao para popular array com 0s e 1s, disponivel/indisponivel
 
-        
+        public static void fillParkingSlots(Zonas zona)
+        {
+            int occSpots=0; //variavel guardar quantos lugares ocupados
+            List<Car> cars  = new List<Car>();
+
+
+            //lista spots ocupados
+            List<int> filledSpots = new List<int>();
+            //ciclo para popular com 0s (livres) e 1s (ocupados) os lugares
+            for (int i = 0; i < zona.spots; i ++)
+            {
+                filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
+                Console.Write($"spot {i+1} = {filledSpots[i]} || ");
+                if (filledSpots[i] == 1)
+                    occSpots++;
+               
+            }
+
+            Console.WriteLine("Lugares ocupados: " + occSpots);
+            
+
+            
+
+            for (int i = 0; i < occSpots; i++)
+            {
+                cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480,1)));
+                Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos");
+            }
+            
+
+            //tem que retornar a lista para desenhar o parque
+        }
+
+
     }
 }

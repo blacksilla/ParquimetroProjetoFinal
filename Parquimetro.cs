@@ -4,7 +4,7 @@ using System.Transactions;
 namespace ParquimetroProjetoFinal
 {
     internal class Parquimetro
-    {
+    {   
         
         
         static void Main(string[] args)
@@ -32,11 +32,10 @@ namespace ParquimetroProjetoFinal
 
 
             //inciar a criação de Zonas
-            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt());
-            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt());
-            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt());
+            Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(1 , 5 , 10));
+            Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
+            Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
 
-            
 
             while (menuMainActive) {
 
@@ -44,12 +43,6 @@ namespace ParquimetroProjetoFinal
                 
                 Interface.writeStartMenu(CurrentDate);
                 var input = Interface.returnIndexInput();
-
-
-
-
-
-
 
                 switch (input) {
 
@@ -77,9 +70,14 @@ namespace ParquimetroProjetoFinal
                                         input = 4; break;
 
 
-                                case 2: /*Ver Histórico*/break;
+                                case 2: /*Ver Histórico*/
 
-
+                                    //zona random com carro random com tempo estacionamento random
+                                    //retorna uma matricula random
+                                    //class Car
+                                    Zonas.fillParkingSlots(Zona1);
+                                    Console.ReadLine();
+                                    break;
                                 case 3: /*Ver Máquinas*/break;
 
 
@@ -109,26 +107,16 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
-                                    Interface.writeZonas();
-                                    var inputZonas = Interface.returnIndexInput();
-                                    switch (inputZonas) {
-                                        case 1:
-                                            Interface.printZone(Zona1);
-                                            break;
-                                        case 2:
-                                            Interface.printZone(Zona2);
-                                            break;
-                                        case 3:
-                                            Interface.printZone(Zona3);
-                                            break;
-                                        default:
-                                            Interface.errorMessage();   
-                                            break;
-                                    }
-                                    
 
-                                    //Interface.printTicket(CurrentDate);
-                                    break; //Estacionar
+                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    Console.ReadLine();
+                                    Interface.printPark();
+                                    Console.ReadLine();
+                                    Interface.printTicket(CurrentDate);
+                                    menuClientActive= false;
+                                    goto MainMenu;
+                                    //Estacionar
+
                                 case 2:
                                     //Ver Zonas
                                     Interface.showZonas(Zona1, Zona2, Zona3);
@@ -164,8 +152,6 @@ namespace ParquimetroProjetoFinal
 
             MainMenu:
                 continue;
-            
-
             }
 
 
