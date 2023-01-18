@@ -31,32 +31,32 @@ namespace ParquimetroProjetoFinal
 				{
 					case 0.05:
                         saldo = saldo + moeda;
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
 						break;
                     case 0.1:
                         saldo = saldo + moeda;
 
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
                         break;
                     case 0.2:
                         saldo = saldo + moeda;
 
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
                         break;
                     case 0.5:
                         saldo = saldo + moeda;
 
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
                         break;
                     case 1:
                         saldo = saldo + moeda;
 
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
                         break;
                     case 2:
                         saldo = saldo + moeda;
 
-                        possibleParkingTime = saldo * pricePerHour;
+                        possibleParkingTime = saldo * (1 / pricePerHour);
                         break;
 
                     default:
