@@ -36,6 +36,8 @@ namespace ParquimetroProjetoFinal
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
             List <int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
+            List<int> Zona2Occspots = Zonas.fillParkingSlots(Zona2);
+            List<int> Zona3Occspots = Zonas.fillParkingSlots(Zona3);
 
             //Ticket.paymentNchange(Zona1);
 
@@ -113,8 +115,21 @@ namespace ParquimetroProjetoFinal
                                 case 1:
 
                                     InterfaceHelper.writeZonas();
-                                    Console.ReadLine();
-                                    InterfaceHelper.printPark(Zona1Occspots);
+                                    input=InterfaceHelper.returnIndexInput();
+                                    switch (input)
+                                        {
+                                        case 1:
+                                            InterfaceHelper.printPark(Zona1Occspots);
+                                            break;
+                                        case 2:
+                                            InterfaceHelper.printPark(Zona2Occspots);
+                                            break;
+                                        case 3:
+                                            InterfaceHelper.printPark(Zona3Occspots);
+                                            break;
+                                        default: InterfaceHelper.errorMessage(); continue;
+                                    }
+                                    
                                     Console.ReadLine();
                                     InterfaceHelper.printTicket(CurrentDate);
                                     menuClientActive= false;
