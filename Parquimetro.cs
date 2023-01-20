@@ -23,7 +23,7 @@ namespace ParquimetroProjetoFinal
             int CurrentDayofTheWeek = (int)CurrentDate.DayOfWeek;
 
             //Horario funcionamento do parque
-            bool parkStatus = Interface.parkStatus(CurrentHour, CurrentDayofTheWeek);
+            bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
             //estados dos menus
             bool menuAdminActive = false;
@@ -35,8 +35,9 @@ namespace ParquimetroProjetoFinal
             Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(1 , 5 , 10));
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
+            List <int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
 
-            Ticket.paymentNchange(Zona1);
+            //Ticket.paymentNchange(Zona1);
 
 
 
@@ -44,8 +45,8 @@ namespace ParquimetroProjetoFinal
 
                 //escreve o Menu Inicial com a data e hora a que o programa inicia e capta a escolha do utilizador
                 
-                Interface.writeStartMenu(CurrentDate);
-                var input = Interface.returnIndexInput();
+                InterfaceHelper.writeStartMenu(CurrentDate);
+                var input = InterfaceHelper.returnIndexInput();
 
                 switch (input) {
 
@@ -59,16 +60,16 @@ namespace ParquimetroProjetoFinal
                         
                         while (menuAdminActive)
                         {
-                            Interface.writeAdminMenu();
-                            input = Interface.returnIndexInput();
+                            InterfaceHelper.writeAdminMenu();
+                            input = InterfaceHelper.returnIndexInput();
                             switch (input)
                             {
                                 case 0: Environment.Exit(0); break;
 
                                 case 1: //Ver Zonas
-                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3);
                                     Console.WriteLine("Clique qualquer tecla para voltar");
-                                    input= Interface.returnIndexInput();
+                                    input= InterfaceHelper.returnIndexInput();
                                     if (input != 4)
                                         input = 4; break;
 
@@ -90,7 +91,7 @@ namespace ParquimetroProjetoFinal
 
 
                                 default:
-                                    Interface.errorMessage();
+                                    InterfaceHelper.errorMessage();
                                     break;
                             }
                         }
@@ -101,8 +102,8 @@ namespace ParquimetroProjetoFinal
                         
                         while (menuClientActive)
                         {
-                            Interface.writeClientMenu();
-                            input = Interface.returnIndexInput();
+                            InterfaceHelper.writeClientMenu();
+                            input = InterfaceHelper.returnIndexInput();
                             switch (input)
                             {
 
@@ -111,20 +112,20 @@ namespace ParquimetroProjetoFinal
                                     break; //sair
                                 case 1:
 
-                                    Interface.writeZonas();
+                                    InterfaceHelper.writeZonas();
                                     Console.ReadLine();
-                                    Interface.printPark();
+                                    InterfaceHelper.printPark(Zona1Occspots);
                                     Console.ReadLine();
-                                    Interface.printTicket(CurrentDate);
+                                    InterfaceHelper.printTicket(CurrentDate);
                                     menuClientActive= false;
                                     goto MainMenu;
                                     //Estacionar
 
                                 case 2:
                                     //Ver Zonas
-                                    Interface.showZonas(Zona1, Zona2, Zona3);
+                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3);
                                     Console.WriteLine("Clique Enter para voltar");
-                                    input = Interface.returnIndexInput();
+                                    input = InterfaceHelper.returnIndexInput();
                                     if (input != 4)
                                         input = 4; break;
 
@@ -148,7 +149,7 @@ namespace ParquimetroProjetoFinal
                         break;
 
                     default://Inválido
-                        Interface.errorMessage();
+                        InterfaceHelper.errorMessage();
                         break;
                         
                 }

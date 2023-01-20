@@ -36,7 +36,7 @@ namespace ParquimetroProjetoFinal
 
         //criar funcao para popular array com 0s e 1s, disponivel/indisponivel
 
-        public static void fillParkingSlots(Zonas zona)
+        public static List<int> fillParkingSlots(Zonas zona)
         {
             int occSpots=0; //variavel guardar quantos lugares ocupados
             List<Car> cars  = new List<Car>();
@@ -48,12 +48,11 @@ namespace ParquimetroProjetoFinal
             for (int i = 0; i < zona.spots; i ++)
             {
                 filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
-                Console.Write($"spot {i+1} = {filledSpots[i]} || ");
+                InterfaceHelper.printPark(filledSpots);
                 if (filledSpots[i] == 1)
                     occSpots++;
                
             }
-
             Console.WriteLine("Lugares ocupados: " + occSpots);
             
 
@@ -64,8 +63,8 @@ namespace ParquimetroProjetoFinal
                 cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480,1)));
                 Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos");
             }
-            
 
+            return filledSpots;
             //tem que retornar a lista para desenhar o parque
         }
 

@@ -13,7 +13,7 @@ namespace ParquimetroProjetoFinal
     //teste
     //este é o paymentBranch
     //este é o paymentBranch1
-    internal class Interface
+    internal class InterfaceHelper
     {
         //define o horario de funcionamento da app
         public static bool parkStatus(int hour, int dayOfWeek)
@@ -176,31 +176,58 @@ namespace ParquimetroProjetoFinal
         }   
 
         //imprime o parque
-        public static void printPark()
+        public static void printPark(List<int> lista)
         {
-            int maxRow = 10;
+            int maxCol = 10;
+            int maxRows = lista.Count/maxCol;
+            int indexnumber=0;
 
             //deverá aceitar lista/array contendo os lugares ocupados e disponiveis, ver class ZONAS
             Console.Clear();
-            Console.WriteLine(@"
-+---+---+---+---+---+---+---+---+---+---+
-| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
-  -   -   -   -   -   -   -   -   -   -
-| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
-  -   -   -   -   -   -   -   -   -   -
-| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
-  -   -   -   -   -   -   -   -   -   -
-| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
-  -   -   -   -   -   -   -   -   -   -
-| █ | █ | █ | █ | █ | █ | █ | █ | █ | █ |
-+---+---+---+---+---+---+---+---+---+---+
-");
-            Console.WriteLine("A Zona X tem Y lugares disponíveis");
-            Console.WriteLine("Deseja Estacionar? - 1   Voltar - 4");
-
-           
-
             
+            for (int j = 0; j < maxCol; j++)
+            {
+                Console.Write("+---");
+            }
+            Console.Write("+\n");
+            for (int i = 0; i < maxRows; i++)
+            {
+                
+                for (int k=0; k < maxCol; k++)
+                {
+                    if (lista[indexnumber] == 1)
+                    {
+                        Console.Write("| █ ");
+                        indexnumber++;
+                    }
+                    else
+                    {
+                        Console.Write("|   ");
+                        indexnumber++;
+                    }
+                }
+                Console.Write("|\n");
+                if (indexnumber/10 < maxRows)
+                {
+                    for (int j = 0; j < maxCol; j++)
+                    {
+                        Console.Write("  - ");
+                    }
+                    Console.Write("\n");
+                }
+            }
+            for (int j = 0; j < maxCol; j++)
+            {
+                Console.Write("+---");
+            }
+            Console.Write("+\n");
+            Console.WriteLine($"Lugares:{lista.Count}");
+
+
+
+
+
+
 
         }
         public static void writeZonas()
