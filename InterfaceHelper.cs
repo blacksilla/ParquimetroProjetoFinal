@@ -207,7 +207,7 @@ namespace ParquimetroProjetoFinal
                     }
                 }
                 Console.Write("|\n");
-                if (indexnumber/10 < maxRows)
+                if (indexnumber/maxCol < maxRows)
                 {
                     for (int j = 0; j < maxCol; j++)
                     {
@@ -222,13 +222,6 @@ namespace ParquimetroProjetoFinal
             }
             Console.Write("+\n");
             Console.WriteLine($"Lugares:{lista.Count}");
-
-
-
-
-
-
-
         }
         public static void writeZonas()
         {

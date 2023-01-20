@@ -35,7 +35,9 @@ namespace ParquimetroProjetoFinal
             Zonas Zona1 = new Zonas(1, 1.15, 2700000, MathHelper.returnRandomInt(1 , 5 , 10));
             Zonas Zona2 = new Zonas(2, 1, 7200000, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
-            List <int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
+
+            //o ideal será estas listas ficarem guardadas no objeto Zona, eventualmente a lista de carros também
+            List<int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
             List<int> Zona2Occspots = Zonas.fillParkingSlots(Zona2);
             List<int> Zona3Occspots = Zonas.fillParkingSlots(Zona3);
 
@@ -119,7 +121,7 @@ namespace ParquimetroProjetoFinal
                                     switch (input)
                                         {
                                         case 1:
-                                            InterfaceHelper.printPark(Zona1Occspots);
+                                           InterfaceHelper.printPark(Zona1Occspots);
                                             break;
                                         case 2:
                                             InterfaceHelper.printPark(Zona2Occspots);
