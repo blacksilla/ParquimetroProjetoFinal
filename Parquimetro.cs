@@ -113,14 +113,20 @@ namespace ParquimetroProjetoFinal
                                         case 1:
                                             //InterfaceHelper.printZone(Zona1);
                                             InterfaceHelper.printPark(Zona1Occspots);
+                                            Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
+                                            Car.returnParkedCars(Zona1occ);
                                             break;
                                         case 2:
                                             //InterfaceHelper.printZone(Zona2);
                                             InterfaceHelper.printPark(Zona2Occspots);
+                                            Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
+                                            Car.returnParkedCars(Zona2occ);
                                             break;
                                         case 3:
                                             //InterfaceHelper.printZone(Zona3);
                                             InterfaceHelper.printPark(Zona3Occspots);
+                                            Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
+                                            Car.returnParkedCars(Zona3occ);
                                             break;
                                         default: InterfaceHelper.errorMessage(); continue;
                                     }
