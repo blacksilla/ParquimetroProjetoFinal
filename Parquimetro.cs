@@ -26,6 +26,8 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
+            //parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
+
             //estados dos menus
             bool menuAdminActive = false;
             bool menuClientActive = false;
@@ -98,8 +100,7 @@ namespace ParquimetroProjetoFinal
             TotalAmountofZone1 = Math.Round(TotalAmountofZone1,2);
             TotalAmountofZone2 = Math.Round(TotalAmountofZone2,2);
             TotalAmountofZone3 = Math.Round(TotalAmountofZone3,2);
-            //Ticket.paymentNchange(Zona1);
-
+            
 
 
             while (menuMainActive) {
@@ -202,7 +203,7 @@ namespace ParquimetroProjetoFinal
                     case 2: //Cliente
                         menuClientActive = true;
                         
-                        while (menuClientActive)
+                        while (menuClientActive && parkStatus)
                         {
                             InterfaceHelper.writeClientMenu();
                             input = InterfaceHelper.returnIndexInput();
@@ -301,6 +302,7 @@ namespace ParquimetroProjetoFinal
                             }
                             
                         }
+                        InterfaceHelper.parkAnimation();Console.ReadLine();
                         break;
 
                     case 3: //Opções
