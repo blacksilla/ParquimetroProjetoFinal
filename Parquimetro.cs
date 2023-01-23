@@ -300,7 +300,7 @@ namespace ParquimetroProjetoFinal
 
                                 case 3:
                                     /*Ver Históricos*/
-                                    Mytickets.ForEach(x => Console.WriteLine($"Ticket {Mytickets.IndexOf(x)+1} : Zona {x.Idofzone.Id} - Hora de Entrada:  {x.DataStart} - Preço Pago: {x.PayedQT}€ - Matrícula: {x.License}  "));
+                                    InterfaceHelper.drawTickets(Mytickets);
                                     Console.ReadLine();
                                     break;
                                 case 4:

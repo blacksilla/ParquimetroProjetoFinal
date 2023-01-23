@@ -383,5 +383,14 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             }
         }
 
+
+        public static void drawTickets(List <Ticket> tickets)
+        {
+
+            Console.Clear();
+            tickets.ForEach(x => Console.WriteLine($"Ticket {tickets.IndexOf(x) + 1} : Zona {x.Idofzone.Id} - Hora de Entrada:  {x.DataStart} - Preço Pago: {x.PayedQT}€ - Matrícula: {x.License}  "));
+            Console.WriteLine("Enter para voltar");
+            Console.Read();
+        }
     }
 }
