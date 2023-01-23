@@ -68,10 +68,13 @@ namespace ParquimetroProjetoFinal
             return filledSpots;
             //tem que retornar a lista para desenhar o parque
         }
+<<<<<<< Updated upstream
 
 
         
 
 
+=======
+>>>>>>> Stashed changes
     }
 }
