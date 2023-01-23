@@ -40,7 +40,7 @@ namespace ParquimetroProjetoFinal
         {
             int occSpots=0; //variavel guardar quantos lugares ocupados
             List<Car> cars  = new List<Car>();
-
+            var spotAndBrand = new List<(int id, Car car)>();
 
             //lista spots ocupados
             List<int> filledSpots = new List<int>();
@@ -48,12 +48,12 @@ namespace ParquimetroProjetoFinal
             for (int i = 0; i < zona.spots; i ++)
             {
                 filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
-                InterfaceHelper.printPark(filledSpots);
+                //InterfaceHelper.printPark(filledSpots);
                 if (filledSpots[i] == 1)
                     occSpots++;
                
             }
-            Console.WriteLine("Lugares ocupados: " + occSpots);
+            
             
 
             
@@ -61,12 +61,20 @@ namespace ParquimetroProjetoFinal
             for (int i = 0; i < occSpots; i++)
             {
                 cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480,1)));
-                Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
+                //Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
             }
+
+
+            
+            
+
 
             return filledSpots;
             //tem que retornar a lista para desenhar o parque
         }
+
+
+        
 
 
     }

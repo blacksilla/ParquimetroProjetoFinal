@@ -221,7 +221,7 @@ namespace ParquimetroProjetoFinal
                 Console.Write("+---");
             }
             Console.Write("+\n");
-            Console.WriteLine($"Lugares:{lista.Count}");
+            
         }
         public static void writeZonas()
         {
@@ -262,16 +262,13 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine(" |                                       |");
             Console.WriteLine($" |--------         Zona {z.Id}        --------|");
             Console.WriteLine(" |                                       |");
-            Console.WriteLine($" |         Preço: {z.Preco}€/hora             |");
+            Console.WriteLine($"              Preço: {z.Preco}€/hora              ");
             Console.WriteLine(" |     Tempo Máximo de Estacionamento    |");
-            Console.WriteLine($" |              {z.MaxTimeInMs / 60000} minutos               |");
+            Console.WriteLine($"                 {z.MaxTimeInMs / 60000} minutos             ");
             Console.WriteLine(" |                                       |");
             Console.WriteLine(" |    1.Estacionar         2.Voltar      |");
             Console.WriteLine(" _________________________________________");
             Console.WriteLine("Escolha a opção pretendida -> ");
-
-
-            Console.ReadLine();
         }
 
 
