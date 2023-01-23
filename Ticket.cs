@@ -83,7 +83,7 @@ namespace ParquimetroProjetoFinal
 
 				Console.WriteLine($"O saldo é {saldo}€ e a moeda introduzida foi {moeda}€.");
                 
-                if(saldo > pricePerHour)
+                if(saldo > pricePerHour || possibleParkingTime*60>timeLimit)
                 {
                     Console.WriteLine($"O tempo de estacionamento é {timeLimit} minutos");
                     wannaPay = true;
@@ -99,9 +99,9 @@ namespace ParquimetroProjetoFinal
                             break;
 
                         case "C" or "c":
-
+                            wannaPay= false;
                             break;
-                        default: InterfaceHelper.errorMessage(); break;
+                        default: InterfaceHelper.errorMessage(); continue;
                     }
                 }
                 
@@ -131,6 +131,7 @@ namespace ParquimetroProjetoFinal
             
             var timeOfParking = Math.Round(possibleParkingTime * 60, 1);
 
+            //Ou devolve ou chama mesmo a imrpessão do ticket, temos que ver
             return timeOfParking;
         }
     }
