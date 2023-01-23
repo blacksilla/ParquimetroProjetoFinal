@@ -26,7 +26,7 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
-            //parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
+            parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
 
             //estados dos menus
             bool menuAdminActive = false;
@@ -75,11 +75,11 @@ namespace ParquimetroProjetoFinal
             List<Car> carsInZone3 = Car.returnParkedCars(Zona3occ); 
 
             //gerar valores monetarios para cada parque (ADMIN)
-            double GrandTotalofTheParks = 0;
+            
             double TotalAmountofZone1 = 0;
             double TotalAmountofZone2 = 0;
             double TotalAmountofZone3 = 0;
-
+            double GrandTotalofTheParks = Math.Round(TotalAmountofZone1 + TotalAmountofZone2 + TotalAmountofZone3,2);
 
             for (int i = 0; i < Zona1occ; i++)
             {
@@ -150,7 +150,7 @@ namespace ParquimetroProjetoFinal
                                             //InterfaceHelper.printZone(Zona1);
                                             InterfaceHelper.printPark(Zona1Occspots);
                                             Console.WriteLine("ZONA 1");
-                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {Math.Round(TotalAmountofZone1 + TotalAmountofZone2 + TotalAmountofZone3,2)}€");
+                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
                                             InterfaceHelper.writeCarsList(carsInZone1, Zona1occ);
                                             Console.WriteLine();
@@ -160,7 +160,7 @@ namespace ParquimetroProjetoFinal
                                             //InterfaceHelper.printZone(Zona2);
                                             InterfaceHelper.printPark(Zona2Occspots);
                                             Console.WriteLine("ZONA 2");
-                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {Math.Round(TotalAmountofZone1 + TotalAmountofZone2 + TotalAmountofZone3, 2)}€");
+                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
                                             InterfaceHelper.writeCarsList(carsInZone2, Zona2occ);
                                             Console.WriteLine();
@@ -170,7 +170,7 @@ namespace ParquimetroProjetoFinal
                                             //InterfaceHelper.printZone(Zona3);
                                             InterfaceHelper.printPark(Zona3Occspots);
                                             Console.WriteLine("ZONA 3");
-                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {Math.Round(TotalAmountofZone1 + TotalAmountofZone2 + TotalAmountofZone3, 2)}€");
+                                            Console.WriteLine($"Total do dia: {TotalAmountofZone3}€ || Total dos Parques: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
                                             InterfaceHelper.writeCarsList(carsInZone3, Zona3occ);
                                             Console.WriteLine();
@@ -271,7 +271,7 @@ namespace ParquimetroProjetoFinal
 
 
                                             break;
-                                        default: InterfaceHelper.errorMessage(); break;
+                                        default: InterfaceHelper.errorMessage(); continue;
                                     }
                                     
                                     Console.ReadLine();
