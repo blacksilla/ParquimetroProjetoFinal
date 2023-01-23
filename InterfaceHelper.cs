@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace ParquimetroProjetoFinal
 {
-    //Sou lindo
-
-
-    //teste
-    //este é o paymentBranch
-    //este é o paymentBranch1
+    
     internal class InterfaceHelper
     {
         //define o horario de funcionamento da app
@@ -376,6 +371,10 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
 
         public static void writeCarsList(List<Car> cars, int numberOfCars)
         {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Lista de Carros nesta Zona: ");
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < numberOfCars; i++)
             {
                 Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n Valor: {Math.Round(cars[i].ParkingTime*1.15,2)}€ \n");
