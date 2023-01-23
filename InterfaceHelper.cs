@@ -371,13 +371,14 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
 
         public static void writeCarsList(List<Car> cars, int numberOfCars)
         {
+            
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Lista de Carros nesta Zona: ");
             Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < numberOfCars; i++)
             {
-                Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n Valor: {Math.Round(cars[i].ParkingTime*1.15,2)}€ \n");
+                Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
             }
         }
 
