@@ -26,7 +26,7 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
-            //parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
+            parkStatus = true; //Descomentar caso seja necessário mostrar o parque fechado
 
             //estados dos menus
             bool menuAdminActive = false;
@@ -38,7 +38,7 @@ namespace ParquimetroProjetoFinal
             Zonas Zona1 = new Zonas(1, 1.15, 45, MathHelper.returnRandomInt(1 , 5 , 10));
             Zonas Zona2 = new Zonas(2, 1, 120, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
-
+           
             //Retorna a disposição de cada parque depois de serem gerados os spots de forma aleatoria
             List<int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
             List<int> Zona2Occspots = Zonas.fillParkingSlots(Zona2);
@@ -99,6 +99,8 @@ namespace ParquimetroProjetoFinal
 
             double GrandTotalofTheParks = Math.Round(TotalAmountofZone1 + TotalAmountofZone2 + TotalAmountofZone3, 2);
 
+            //criação de lista para guardar os tickets
+            List<Ticket> Mytickets = new List<Ticket>();
 
 
             while (menuMainActive) {
@@ -218,55 +220,70 @@ namespace ParquimetroProjetoFinal
                                     switch (input)
                                         {
                                         case 1:
-                                            InterfaceHelper.printZone(Zona1);
-                                            input = InterfaceHelper.returnIndexInput();
-                                            switch (input) {
-                                                case 1:
-                                                InterfaceHelper.printPark(Zona1Occspots);
-                                                Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
-                                                Ticket.paymentNchange(Zona1,CurrentDayofTheWeek,CurrentHour);
-                                                    break;
-                                                case 2:
-                                                    continue;
-                                                default: InterfaceHelper.errorMessage(); continue;
-                                            }
-                                            
+                                            if (Zona1.Spots > Zona1occ)
+                                            {
+                                                InterfaceHelper.printZone(Zona1);
+                                                input = InterfaceHelper.returnIndexInput();
+                                                switch (input)
+                                                {
+                                                    case 1:
+                                                        InterfaceHelper.printPark(Zona1Occspots);
+                                                        Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
+                                                        Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
+                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                        Zona1.Spots = Zona1.Spots - 1;
+                                                        Zona1occ++;
+                                                        break;
+                                                    case 2:
+                                                        continue;
+                                                    default: InterfaceHelper.errorMessage(); continue;
+                                                }
+                                            } 
+
 
                                             break;
                                         case 2:
-                                            //InterfaceHelper.printZone(Zona2);
-                                            InterfaceHelper.printZone(Zona2);
-                                            input = InterfaceHelper.returnIndexInput();
-                                            switch (input)
+                                            if (Zona2.Spots > Zona2occ)
                                             {
-                                                case 1:
-                                                    InterfaceHelper.printPark(Zona2Occspots);
-                                                    Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
-                                                    Ticket.paymentNchange(Zona2,CurrentDayofTheWeek,CurrentHour);
-                                                    break;
-                                                case 2:
-                                                    continue;
-                                                default: InterfaceHelper.errorMessage(); continue;
+                                                InterfaceHelper.printZone(Zona2);
+                                                input = InterfaceHelper.returnIndexInput();
+                                                switch (input)
+                                                {
+                                                    case 1:
+                                                        InterfaceHelper.printPark(Zona2Occspots);
+                                                        Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
+                                                        Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
+                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                        Zona2.Spots = Zona2.Spots - 1;
+                                                        Zona2occ++;
+                                                        break;
+                                                    case 2:
+                                                        continue;
+                                                    default: InterfaceHelper.errorMessage(); continue;
+                                                }
                                             }
-
 
                                             break;
                                         case 3:
-                                            //InterfaceHelper.printZone(Zona3);
-                                            InterfaceHelper.printZone(Zona3);
-                                            input = InterfaceHelper.returnIndexInput();
-                                            switch (input)
+                                            if (Zona3.Spots > Zona3occ)
                                             {
-                                                case 1:
-                                                    InterfaceHelper.printPark(Zona3Occspots);
-                                                    Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
-                                                    Ticket.paymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour);
-                                                    break;
-                                                case 2:
-                                                    continue;
-                                                default: InterfaceHelper.errorMessage(); continue;
+                                                InterfaceHelper.printZone(Zona3);
+                                                input = InterfaceHelper.returnIndexInput();
+                                                switch (input)
+                                                {
+                                                    case 1:
+                                                        InterfaceHelper.printPark(Zona3Occspots);
+                                                        Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
+                                                        Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
+                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                        Zona3.Spots = Zona3.Spots - 1;
+                                                        Zona3occ++;
+                                                        break;
+                                                    case 2:
+                                                        continue;
+                                                    default: InterfaceHelper.errorMessage(); continue;
+                                                }
                                             }
-
 
                                             break;
                                         default: InterfaceHelper.errorMessage(); continue;
@@ -286,6 +303,8 @@ namespace ParquimetroProjetoFinal
 
                                 case 3:
                                     /*Ver Históricos*/
+                                    Mytickets.ForEach(x => Console.WriteLine(x));
+                                    Console.ReadLine();
                                     break;
                                 case 4:
                                     /*Voltar*/
@@ -315,7 +334,7 @@ namespace ParquimetroProjetoFinal
                 continue;
             }
 
-
+            
             
              
 

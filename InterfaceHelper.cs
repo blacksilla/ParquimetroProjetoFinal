@@ -14,11 +14,11 @@ namespace ParquimetroProjetoFinal
         public static bool parkStatus(int hour, int dayOfWeek)
         {
             
-            if (dayOfWeek < 6 && hour >= 9 && hour <= 20)
+            if (dayOfWeek < 6 && hour >= 9 && hour < 20)
             {
                 return true;
             }
-            else if (dayOfWeek == 7 && hour >= 9 && hour <= 14)
+            else if (dayOfWeek == 7 && hour >= 9 && hour < 14)
             {
                 return true;
             }
@@ -225,7 +225,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
 
 
         //faz a animação de processar e depois imprime o ticket
-        public static void printTicket(DateTime data)
+        public static void printTicket(Ticket t)
         {
             processingAnimation();
             int waitTime=500;
@@ -239,22 +239,22 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(@"|        /   ( ͡° ͜ʖ ͡°)   \                                             |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine(@"|      O/_____/________/____\O              Parque X                     |");
+            Console.WriteLine($@"|      O/_____/________/____\O                Zona {t.Idofzone.Id}                     |");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine(@"|      /__________+__________\                                           |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {data} |");
+            Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {t.DataStart} |");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine(@"|     \_______________________/     Montante:                            |");
+            Console.WriteLine($@"|     \_______________________/     Montante:{Math.Round(t.PayedQT,2)}€                       |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine(@"|      | _""__|_,-----,_|__""_ |      Matrícula: AA-XX-AA                  |");
+            Console.WriteLine($@"|      | _""__|_,-----,_|__""_ |      Matrícula: {t.License}                  |");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine(@"|      | |     '-----'     | |                                           |");

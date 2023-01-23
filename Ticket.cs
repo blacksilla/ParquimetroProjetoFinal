@@ -5,13 +5,32 @@ namespace ParquimetroProjetoFinal
 {
 	public class Ticket
 	{
-		public static double paymentNchange(Zonas z,int day,int hour)
+        private DateTime dataStart;
+        private Zonas idofzone;
+        private string license;
+        private double payedQT;
+
+        public DateTime DataStart { get => dataStart; set => dataStart = value; }
+        public Zonas Idofzone { get => idofzone; set => idofzone = value; }
+        public string License { get => license; set => license = value; }
+        public double PayedQT { get => payedQT; set => payedQT = value; }
+
+        public Ticket(DateTime dataStart, Zonas idofzone, string license, double payedQT)
+        {
+            this.dataStart = dataStart;
+            this.idofzone = idofzone;
+            this.license = license;
+            this.payedQT = payedQT;
+        }
+
+        public static Ticket PaymentNchange(Zonas z,int day,int hour)
 		{
 			double saldo = 0;
-            double troco = 0;
+            double troco;
             double moeda;
             bool state,wannaPay=false;
             double possibleParkingTime = 0.0;
+            DateTime CurrentDate = DateTime.Now;
 
             double timeLimit = z.MaxTimeInMs;
 
@@ -101,11 +120,11 @@ namespace ParquimetroProjetoFinal
                         case "C" or "c":
                             wannaPay= false;
                             break;
-                        default: InterfaceHelper.errorMessage(); continue;
+                        default: InterfaceHelper.errorMessage(); wannaPay= false; break;
                     }
                 }
-                
 
+                
             }
             
 
@@ -119,25 +138,27 @@ namespace ParquimetroProjetoFinal
                     troco =Math.Round( saldo - (timeLimit / 60 * pricePerHour),2);
                     Console.WriteLine($"O troco é {troco}€");
                     Console.ReadLine();
-                    //avança para pedir matricula
-                    break;
+                    
+                    string license = getLicense();
+                    Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco);
+                    return myticket;
 
                 case "R" or "r":
                     //reset das variáveis
-                    paymentNchange(z,day,hour);
+                    PaymentNchange(z,day,hour);
                     break;
                  default: InterfaceHelper.errorMessage(); break;
             }
-            
-            var timeOfParking = Math.Round(possibleParkingTime * 60, 1);
 
-            //Ou devolve ou chama mesmo a imrpessão do ticket, temos que ver
-            return timeOfParking;
+            return null;
         }
 
-
-
-        
+        public static string getLicense()
+        {
+            Console.WriteLine("Insira a sua matrícula no formato XX-00-YY");
+            string license = Console.ReadLine();
+            return license;
+        }
     }
 }
 
