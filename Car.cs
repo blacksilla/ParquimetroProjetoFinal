@@ -97,7 +97,7 @@ namespace ParquimetroProjetoFinal
         }
 
 
-        public static void returnParkedCars(int numberOfCars)
+        public static List<Car> returnParkedCars(int numberOfCars)
         {
             List<Car> cars = new List<Car>();
 
@@ -105,11 +105,11 @@ namespace ParquimetroProjetoFinal
             for (int i = 0; i < numberOfCars; i++)
             {
                 cars.Add(new Car(Car.randomCarBrand(), Car.returnRandomLicense(), MathHelper.returnRandomInt(10, 480, 1)));
-                Console.Write($"\n {i+1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
+                
                 
             }
 
-
+            return cars;
         }
     
         

@@ -110,7 +110,6 @@ namespace ParquimetroProjetoFinal
         public static void showZonas(Zonas z1,Zonas z2,Zonas z3)
         {
             Console.Clear();
-            Console.Clear();
             Console.WriteLine("  _____________________________________________________________");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine($" |         A Zona {z1.Id} custa {z1.Preco}€/hora com {z1.Spots} lugares            |");
@@ -123,6 +122,24 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine("  _____________________________________________________________");
+        }
+        public static void showMachines(double total1,double total2,double total3,int spots1,int spots2,int spots3)
+        {
+            Console.Clear();
+            Console.WriteLine("  _____________________________________________________________");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine($"                    Total de faturação: {Math.Round(total1+total2+total3,2)}€                                            ");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine($"          A Zona 1 angariou {total1}€ com {spots1} lugares ocupados            ");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine($"          A Zona 2 angariou {total2}€ com {spots2} lugares ocupados              ");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine($"          A Zona 1 angariou {total3}€ com {spots3} lugares ocupados            ");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine(" |                                                             |");
+            Console.WriteLine("  _____________________________________________________________"); 
         }
 
 
@@ -184,7 +201,6 @@ namespace ParquimetroProjetoFinal
 
             //deverá aceitar lista/array contendo os lugares ocupados e disponiveis, ver class ZONAS
             Console.Clear();
-            
             for (int j = 0; j < maxCol; j++)
             {
                 Console.Write("+---");
@@ -264,7 +280,7 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine(" |                                       |");
             Console.WriteLine($"              Preço: {z.Preco}€/hora              ");
             Console.WriteLine(" |     Tempo Máximo de Estacionamento    |");
-            Console.WriteLine($"                 {z.MaxTimeInMs / 60000} minutos             ");
+            Console.WriteLine($"                 {z.MaxTimeInMs} minutos             ");
             Console.WriteLine(" |                                       |");
             Console.WriteLine(" |    1.Estacionar         2.Voltar      |");
             Console.WriteLine(" _________________________________________");
@@ -272,7 +288,13 @@ namespace ParquimetroProjetoFinal
         }
 
 
-
+        public static void writeCarsList(List<Car> cars, int numberOfCars)
+        {
+            for (int i = 0; i < numberOfCars; i++)
+            {
+                Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n Valor: {Math.Round(cars[i].ParkingTime*1.15,2)}€ \n");
+            }
+        }
 
     }
 }

@@ -13,7 +13,7 @@ namespace ParquimetroProjetoFinal
             int timeLimit = z.MaxTimeInMs;
             double pricePerHour = z.Preco;
 
-            Console.WriteLine($"O preço da zona {z.Id} é {pricePerHour}/hora");            
+            Console.WriteLine($"O preço da Zona {z.Id} é {pricePerHour}/hora");            
 
 			while (true)
 			{

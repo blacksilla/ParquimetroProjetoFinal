@@ -16,7 +16,7 @@ namespace ParquimetroProjetoFinal
 
         private int id;
         private double preco;
-        private int MaxTimeInms;
+        private int MaxTimeInM;
         private int spots;
 
         public Zonas(int id, double preco, int maxTimeInMs, int spots)
@@ -29,7 +29,7 @@ namespace ParquimetroProjetoFinal
 
         public int Id { get => id; set => id = value; }
         public double Preco { get => preco; set => preco = value; }
-        public int MaxTimeInMs { get => MaxTimeInms; set => MaxTimeInms = value; }
+        public int MaxTimeInMs { get => MaxTimeInM; set => MaxTimeInM = value; }
         public int Spots { get => spots; set => spots = value; }
 
 
