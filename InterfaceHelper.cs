@@ -211,13 +211,13 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(" |                                                             |");
             Console.WriteLine($"                    Total de faturação: {Math.Round(total1+total2+total3,2)}€                                            ");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($"          A Zona 1 angariou {total1}€ com {spots1} lugares ocupados            ");
+            Console.WriteLine($"          A Zona 1 angariou {Math.Round(total1, 2)}€ com {spots1} lugares ocupados    a        ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($"          A Zona 2 angariou {total2}€ com {spots2} lugares ocupados              ");
+            Console.WriteLine($"          A Zona 2 angariou {Math.Round(total2, 2)}€ com {spots2} lugares ocupados              ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($"          A Zona 1 angariou {total3}€ com {spots3} lugares ocupados            ");
+            Console.WriteLine($"          A Zona 1 angariou {Math.Round(total3, 2)}€ com {spots3} lugares ocupados            ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine("  _____________________________________________________________"); 
