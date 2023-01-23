@@ -211,7 +211,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(" |                                                             |");
             Console.WriteLine($"                    Total de faturação: {Math.Round(total1+total2+total3,2)}€                                            ");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($"          A Zona 1 angariou {Math.Round(total1, 2)}€ com {spots1} lugares ocupados    a        ");
+            Console.WriteLine($"          A Zona 1 angariou {Math.Round(total1, 2)}€ com {spots1} lugares ocupados             ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine($"          A Zona 2 angariou {Math.Round(total2, 2)}€ com {spots2} lugares ocupados              ");
@@ -251,7 +251,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine($@"|     \_______________________/     Montante:{Math.Round(t.PayedQT,2)}€                       |");
+            Console.WriteLine($@"      \_______________________/     Montante: {Math.Round(t.PayedQT,2)}€                      ");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine($@"|      | _""__|_,-----,_|__""_ |      Matrícula: {t.License}                  |");
@@ -268,6 +268,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.Beep();
             Console.WriteLine(@"__________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Enter para voltar ao menu");
             Console.ReadLine();
 
 

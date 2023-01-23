@@ -231,7 +231,6 @@ namespace ParquimetroProjetoFinal
                                                         Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona1.Spots = Zona1.Spots - 1;
                                                         Zona1occ++;
                                                         break;
                                                     case 2:
@@ -254,7 +253,6 @@ namespace ParquimetroProjetoFinal
                                                         Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona2.Spots = Zona2.Spots - 1;
                                                         Zona2occ++;
                                                         break;
                                                     case 2:
@@ -276,7 +274,6 @@ namespace ParquimetroProjetoFinal
                                                         Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona3.Spots = Zona3.Spots - 1;
                                                         Zona3occ++;
                                                         break;
                                                     case 2:
@@ -303,7 +300,7 @@ namespace ParquimetroProjetoFinal
 
                                 case 3:
                                     /*Ver Históricos*/
-                                    Mytickets.ForEach(x => Console.WriteLine(x));
+                                    Mytickets.ForEach(x => Console.WriteLine($"Ticket {Mytickets.Count} : Zona {x.Idofzone.Id} - Hora de Entrada:  {x.DataStart} - Preço Pago: {x.PayedQT}€ - Matrícula: {x.License}  "));
                                     Console.ReadLine();
                                     break;
                                 case 4:
