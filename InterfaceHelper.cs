@@ -107,18 +107,18 @@ namespace ParquimetroProjetoFinal
         }
 
 
-        public static void showZonas(Zonas z1,Zonas z2,Zonas z3)
+        public static void showZonas(Zonas z1,Zonas z2,Zonas z3, int occ1, int occ2, int occ3)
         {
             Console.Clear();
             Console.WriteLine("  _____________________________________________________________");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($" |         A Zona {z1.Id} custa {z1.Preco}€/hora com {z1.Spots} lugares            |");
+            Console.WriteLine($"     A Zona {z1.Id} custa {z1.Preco}€/hora com {z1.Spots} lugares, {z1.Spots-occ1} disponíveis            ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($" |         A Zona {z2.Id} custa {z2.Preco}€/hora com {z2.Spots} lugares               |");
+            Console.WriteLine($"     A Zona {z2.Id} custa {z2.Preco}€/hora com {z2.Spots} lugares, {z2.Spots - occ2} disponíveis              ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($" |         A Zona {z3.Id} custa {z3.Preco}€/hora com {z3.Spots} lugares            |");
+            Console.WriteLine($"     A Zona {z3.Id} custa {z3.Preco}€/hora com {z3.Spots} lugares, {z3.Spots - occ3} disponíveis           ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine("  _____________________________________________________________");

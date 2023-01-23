@@ -129,7 +129,7 @@ namespace ParquimetroProjetoFinal
                                 case 0: Environment.Exit(0); break;
 
                                 case 1: //Ver Zonas
-                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3);
+                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3,Zona1occ,Zona2occ,Zona3occ);
                                     Console.WriteLine("Clique qualquer tecla para voltar");
                                     input= InterfaceHelper.returnIndexInput();
                                     if (input != 4)
@@ -281,7 +281,7 @@ namespace ParquimetroProjetoFinal
 
                                 case 2:
                                     //Ver Zonas
-                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3);
+                                    InterfaceHelper.showZonas(Zona1, Zona2, Zona3,Zona1occ,Zona2occ,Zona3occ);
                                     Console.WriteLine("Clique Enter para voltar");
                                     input = InterfaceHelper.returnIndexInput();
                                     if (input != 4)
