@@ -134,6 +134,10 @@ namespace ParquimetroProjetoFinal
             //Ou devolve ou chama mesmo a imrpessão do ticket, temos que ver
             return timeOfParking;
         }
+
+
+
+        
     }
 }
 
