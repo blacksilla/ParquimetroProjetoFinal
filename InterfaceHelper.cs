@@ -217,7 +217,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine($"          A Zona 2 angariou {Math.Round(total2, 2)}€ com {spots2} lugares ocupados              ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
-            Console.WriteLine($"          A Zona 1 angariou {Math.Round(total3, 2)}€ com {spots3} lugares ocupados            ");
+            Console.WriteLine($"          A Zona 3 angariou {Math.Round(total3, 2)}€ com {spots3} lugares ocupados            ");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine(" |                                                             |");
             Console.WriteLine("  _____________________________________________________________"); 
