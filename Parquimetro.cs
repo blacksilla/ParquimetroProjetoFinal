@@ -232,6 +232,7 @@ namespace ParquimetroProjetoFinal
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                         Zona1occ++;
+                                                        //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
                                                         continue;
@@ -254,6 +255,7 @@ namespace ParquimetroProjetoFinal
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                         Zona2occ++;
+                                                        //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
                                                         continue;
@@ -275,6 +277,7 @@ namespace ParquimetroProjetoFinal
                                                         Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
                                                         InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                         Zona3occ++;
+                                                        //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
                                                         continue;
