@@ -26,7 +26,7 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
-            parkStatus = true; //Descomentar caso seja necessário mostrar o parque fechado
+            //parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
 
             //estados dos menus
             bool menuAdminActive = false;

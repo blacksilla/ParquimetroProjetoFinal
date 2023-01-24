@@ -129,12 +129,12 @@ namespace ParquimetroProjetoFinal
             
 
 
-            Console.WriteLine("Confirmar Pagamento - P || Resetar - R");
+            Console.WriteLine("Confirmar Pagamento - C || Reiniciar - R");
             
             var input = Console.ReadLine();
             switch (input)
             {
-                case "P" or "p":
+                case "C" or "c":
                     if (saldo > timeLimit / 60 * pricePerHour)
                     {
                         troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
