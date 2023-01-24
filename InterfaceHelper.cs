@@ -248,7 +248,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {t.DataStart} |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine(@"|    | [**](#############)[**] |    Hora de Saída:                       |");
+            Console.WriteLine($@"|    | [**](#############)[**] |    Hora de Saída: {t.DataLeave}   |");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine($@"      \_______________________/     Montante: {Math.Round(t.PayedQT,2)}€                      ");

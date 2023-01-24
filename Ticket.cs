@@ -9,19 +9,22 @@ namespace ParquimetroProjetoFinal
         private Zonas idofzone;
         private string license;
         private double payedQT;
+        private DateTime dataLeave;
 
-        public DateTime DataStart { get => dataStart; set => dataStart = value; }
-        public Zonas Idofzone { get => idofzone; set => idofzone = value; }
-        public string License { get => license; set => license = value; }
-        public double PayedQT { get => payedQT; set => payedQT = value; }
-
-        public Ticket(DateTime dataStart, Zonas idofzone, string license, double payedQT)
+        public Ticket(DateTime dataStart, Zonas idofzone, string license, double payedQT, DateTime dataLeave)
         {
             this.dataStart = dataStart;
             this.idofzone = idofzone;
             this.license = license;
             this.payedQT = payedQT;
+            this.dataLeave = dataLeave;
         }
+
+        public DateTime DataStart { get => dataStart; set => dataStart = value; }
+        public Zonas Idofzone { get => idofzone; set => idofzone = value; }
+        public string License { get => license; set => license = value; }
+        public double PayedQT { get => payedQT; set => payedQT = value; }
+        public DateTime DataLeave { get => dataLeave; set => dataLeave = value; }
 
         public static Ticket PaymentNchange(Zonas z,int day,int hour)
 		{
@@ -50,7 +53,7 @@ namespace ParquimetroProjetoFinal
             
             Console.WriteLine($"O preço da Zona {z.Id} é {pricePerHour}€/hora e o tempo máximo de estacionamento são de {timeLimit} minutos");            
 
-			while (Math.Round(possibleParkingTime * 60, 1) <= timeLimit && wannaPay==false && timeLimit!=0)
+			while (Math.Round(possibleParkingTime * 60, 1) <= timeLimit && wannaPay==false)
 			{
 
                 Console.WriteLine("Insira a moeda.");
@@ -140,14 +143,14 @@ namespace ParquimetroProjetoFinal
                         troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
                         Console.WriteLine($"O troco é {troco}€");
                         string license = getLicense();
-                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco);
+                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco,CurrentDate.AddMinutes(timeLimit));
                         return myticket;
                     }
                     else
                     {
                         troco = 0;
                         string license = getLicense();
-                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco);
+                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(timeLimit));
                         return myticket;
                     }
                     
