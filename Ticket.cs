@@ -146,7 +146,7 @@ namespace ParquimetroProjetoFinal
                         Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco,CurrentDate.AddMinutes(timeLimit));
                         return myticket;
                     }
-                    else
+                    else //deverá ser elseif, ver melhor
                     {
                         troco = 0;
                         string license = getLicense();

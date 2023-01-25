@@ -31,7 +31,6 @@ namespace ParquimetroProjetoFinal
         public static void writeStartMenu(DateTime date)
         {
             Console.OutputEncoding = Encoding.UTF8;
-
             Console.Clear();
             Console.WriteLine("  _______________________________________ ");
             Console.WriteLine(" |                                       |");
