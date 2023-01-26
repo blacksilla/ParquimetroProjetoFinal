@@ -111,7 +111,7 @@ namespace ParquimetroProjetoFinal
                     wannaPay = true;
                 }
                 else {
-                    Console.WriteLine($"O tempo de estacionamento é {Math.Round(possibleParkingTime * 60, 1)} minutos");
+                    Console.WriteLine($"O tempo de estacionamento é {Math.Round(possibleParkingTime * 60)} minutos");
                     Console.WriteLine("Continuar - C || Pagar - P");
                     var inputPayOrNot = Console.ReadLine();
                     switch (inputPayOrNot)
