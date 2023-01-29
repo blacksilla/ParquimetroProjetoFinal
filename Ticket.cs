@@ -134,7 +134,7 @@ namespace ParquimetroProjetoFinal
                             troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
                             Console.WriteLine($"O troco é {troco}€");
                             string license = getLicense();
-                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(timeLimit));
+                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
                         }
                         else //deverá ser elseif, ver melhor
@@ -142,7 +142,7 @@ namespace ParquimetroProjetoFinal
                             paymentMenu = false;
                             troco = 0;
                             string license = getLicense();
-                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(timeLimit));
+                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
                         }
 
