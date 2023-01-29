@@ -11,13 +11,14 @@ namespace ParquimetroProjetoFinal
         static void Main(string[] args)
         {
             //falta criar sistema de horas de funcionamento do parque seg-sex:9-20/sab:9-14 (ex sabado as 15 não deverá aceitar ou estacionar ou moedas)
-            
+
             
 
 
             //Por a consola a dar display corretamente dos caracteres especiais como o €
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            
+           
+
             //guardar a hora de inicio do programa
             DateTime CurrentDate = DateTime.Now;
             int CurrentHour = CurrentDate.Hour;
@@ -26,7 +27,7 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
-            parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
+            parkStatus = true; //Descomentar caso seja necessário mostrar o parque fechado
 
             //estados dos menus
             bool menuAdminActive = false;
@@ -106,7 +107,7 @@ namespace ParquimetroProjetoFinal
             while (menuMainActive) {
 
                 //escreve o Menu Inicial com a data e hora a que o programa inicia e capta a escolha do utilizador
-                
+               
                 InterfaceHelper.writeStartMenu(CurrentDate);
                 
                 var input = InterfaceHelper.returnIndexInput();
@@ -149,30 +150,30 @@ namespace ParquimetroProjetoFinal
                                         case 1:
                                             //InterfaceHelper.printZone(Zona1);
                                             InterfaceHelper.printPark(Zona1Occspots);
-                                            Console.WriteLine("ZONA 1");
-                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone1,2)}€ || Total dos Parques: {GrandTotalofTheParks}€");
+                                            Console.WriteLine("                      ZONA 1");
+                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone1,2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
-                                            InterfaceHelper.writeCarsList(carsInZone1, Zona1occ);
+                                            InterfaceHelper.writeCarsList(carsInZone1, Zona1occ,Zona1);
                                             Console.WriteLine();
                                             Console.WriteLine("Clique Enter para voltar");
                                             break;
                                         case 2:
                                             //InterfaceHelper.printZone(Zona2);
                                             InterfaceHelper.printPark(Zona2Occspots);
-                                            Console.WriteLine("ZONA 2");
-                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone2, 2)}€ || Total dos Parques: {GrandTotalofTheParks}€");
+                                            Console.WriteLine("                      ZONA 2");
+                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone2, 2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
-                                            InterfaceHelper.writeCarsList(carsInZone2, Zona2occ);
+                                            InterfaceHelper.writeCarsList(carsInZone2, Zona2occ,Zona2);
                                             Console.WriteLine();
                                             Console.WriteLine("Clique Enter para voltar");
                                             break;
                                         case 3:
                                             //InterfaceHelper.printZone(Zona3);
                                             InterfaceHelper.printPark(Zona3Occspots);
-                                            Console.WriteLine("ZONA 3");
-                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone3, 2)}€ || Total dos Parques: {GrandTotalofTheParks}€");
+                                            Console.WriteLine("                      ZONA 3");
+                                            Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone3, 2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
                                             Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
-                                            InterfaceHelper.writeCarsList(carsInZone3, Zona3occ);
+                                            InterfaceHelper.writeCarsList(carsInZone3, Zona3occ,Zona3);
                                             Console.WriteLine();
                                             Console.WriteLine("Clique Enter para voltar");
                                             break;
@@ -229,9 +230,17 @@ namespace ParquimetroProjetoFinal
                                                     case 1:
                                                         InterfaceHelper.printPark(Zona1Occspots);
                                                         Console.WriteLine($"Tamanho: {Zona1.Spots} || Lugares ocupados: {Zona1occ} || Lugares disponíveis: {Zona1.Spots - Zona1occ}");
-                                                        Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
-                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona1occ++;
+                                                        if(Zona1occ>=Zona1.Spots)
+                                                        {
+                                                            InterfaceHelper.cantPark(Zona1);
+                                                        }
+                                                        else
+                                                        {
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
+                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                            Zona1occ++;
+                                                            carsInZone1.Add(new Car (" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute- Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                        }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
@@ -252,9 +261,17 @@ namespace ParquimetroProjetoFinal
                                                     case 1:
                                                         InterfaceHelper.printPark(Zona2Occspots);
                                                         Console.WriteLine($"Tamanho: {Zona2.Spots} || Lugares ocupados: {Zona2occ} || Lugares disponíveis: {Zona2.Spots - Zona2occ}");
-                                                        Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
-                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona2occ++;
+                                                        if (Zona2occ >= Zona2.Spots)
+                                                        {
+                                                            InterfaceHelper.cantPark(Zona2);
+                                                        }
+                                                        else
+                                                        {
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
+                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                            Zona2occ++;
+                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute - Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                        }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
@@ -274,9 +291,17 @@ namespace ParquimetroProjetoFinal
                                                     case 1:
                                                         InterfaceHelper.printPark(Zona3Occspots);
                                                         Console.WriteLine($"Tamanho: {Zona3.Spots} || Lugares ocupados: {Zona3occ} || Lugares disponíveis: {Zona3.Spots - Zona3occ}");
-                                                        Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
-                                                        InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                        Zona3occ++;
+                                                        if (Zona3occ >= Zona3.Spots)
+                                                        {
+                                                            InterfaceHelper.cantPark(Zona3);
+                                                        }
+                                                        else
+                                                        {
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
+                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                            Zona3occ++;
+                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute - Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                        }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
                                                     case 2:
@@ -316,7 +341,7 @@ namespace ParquimetroProjetoFinal
                             }
                             
                         }
-                        InterfaceHelper.parkAnimation();Console.ReadLine();
+                        InterfaceHelper.parkAnimation();
                         break;
 
                     case 3: //Opções
