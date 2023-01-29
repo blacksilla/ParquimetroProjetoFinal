@@ -77,7 +77,7 @@ namespace ParquimetroProjetoFinal
                         case 0.5:
                         case 1:
                         case 2:
-                            saldo = saldo + moeda;
+                            saldo += moeda;
                             possibleParkingTime = saldo / pricePerHour;
                             break;
 
