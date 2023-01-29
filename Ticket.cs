@@ -129,6 +129,7 @@ namespace ParquimetroProjetoFinal
                     case "C" or "c":
                         if (saldo > timeLimit / 60 * pricePerHour)
                         {
+                            paymentMenu = false;
                             troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
                             Console.WriteLine($"O troco é {troco}€");
                             string license = getLicense();
@@ -137,6 +138,7 @@ namespace ParquimetroProjetoFinal
                         }
                         else //deverá ser elseif, ver melhor
                         {
+                            paymentMenu = false;
                             troco = 0;
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(timeLimit));
