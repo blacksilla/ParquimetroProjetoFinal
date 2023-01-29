@@ -27,7 +27,7 @@ namespace ParquimetroProjetoFinal
             //Horario funcionamento do parque
             bool parkStatus = InterfaceHelper.parkStatus(CurrentHour, CurrentDayofTheWeek);
 
-            //parkStatus = false; //Descomentar caso seja necessário mostrar o parque fechado
+            parkStatus = true; //Descomentar caso seja necessário mostrar o parque fechado
 
             //estados dos menus
             bool menuAdminActive = false;
@@ -143,6 +143,7 @@ namespace ParquimetroProjetoFinal
                                     //zona random com carro random com tempo estacionamento random
                                     //retorna uma matricula random
                                     //class Car
+                                    //mostra se o carro está dentro ou fora do tempo de estacionamento permitido
                                     InterfaceHelper.writeZonas();
                                     input = InterfaceHelper.returnIndexInput();
                                     switch (input)
@@ -183,6 +184,7 @@ namespace ParquimetroProjetoFinal
                                     Console.ReadLine();
                                     break;
                                 case 3: /*Ver Máquinas*/
+                                    //mostra os valores de cada máquina, 1 por zona
                                     InterfaceHelper.showMachines(TotalAmountofZone1, TotalAmountofZone2, TotalAmountofZone3, Zona1occ, Zona2occ, Zona3occ);
                                     Console.ReadLine();
 
@@ -215,7 +217,7 @@ namespace ParquimetroProjetoFinal
                                     Environment.Exit(0);
                                     break; //sair
                                 case 1:
-
+                                    //Estacionar
                                     InterfaceHelper.writeZonas();
                                     input=InterfaceHelper.returnIndexInput();
                                     switch (input)
@@ -239,7 +241,7 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona1occ++;
-                                                            carsInZone1.Add(new Car (" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute- Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                            carsInZone1.Add(new Car (" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave- Mytickets[Mytickets.Count - 1].DataStart).Minutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
@@ -270,9 +272,9 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona2occ++;
-                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute - Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave - Mytickets[Mytickets.Count - 1].DataStart).Minutes));
                                                         }
-                                                        //falta transformar num carro e adiciona-lo a lista do parque 
+                                                        
                                                         break;
                                                     case 2:
                                                         continue;
@@ -300,7 +302,7 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona3occ++;
-                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, Mytickets[Mytickets.Count - 1].DataLeave.Minute - Mytickets[Mytickets.Count - 1].DataStart.Minute));
+                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave - Mytickets[Mytickets.Count - 1].DataStart).Minutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;

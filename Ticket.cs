@@ -38,6 +38,7 @@ namespace ParquimetroProjetoFinal
             double timeLimit = z.MaxTimeInMs;
             bool paymentMenu = true;
 
+            //dá à zona 3 um limite, neste caso, a hora de fecho
             if (timeLimit == 0 && hour>9)
             {
                 switch (day)
@@ -57,7 +58,7 @@ namespace ParquimetroProjetoFinal
             {
                 while (Math.Round(possibleParkingTime * 60, 1) <= timeLimit && wannaPay == false)
                 {
-
+                    //algoritmo para pedir moeda e calcular saldo
                     Console.WriteLine("Insira a moeda.");
                     state = double.TryParse(Console.ReadLine(), out double readedInput);
                     if (state)
@@ -87,9 +88,9 @@ namespace ParquimetroProjetoFinal
                     }
                     if (moeda > 0)
                     {
-                        Console.WriteLine($"O saldo é {saldo}€ e a moeda introduzida foi {moeda}€.");
+                        Console.WriteLine($"O saldo é {Math.Round(saldo,2)}€ e a moeda introduzida foi {moeda}€.");
 
-                        if (saldo > pricePerHour || possibleParkingTime * 60 > timeLimit)
+                        if (saldo > pricePerHour || possibleParkingTime * 60 > timeLimit) 
                         {
                             Console.WriteLine($"O tempo de estacionamento é {timeLimit} minutos");
                             wannaPay = true;
@@ -127,7 +128,7 @@ namespace ParquimetroProjetoFinal
                 switch (input)
                 {
                     case "C" or "c":
-                        if (saldo > timeLimit / 60 * pricePerHour)
+                        if (saldo > (timeLimit / 60 )* pricePerHour)
                         {
                             paymentMenu = false;
                             troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
