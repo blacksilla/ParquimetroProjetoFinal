@@ -14,7 +14,7 @@ namespace ParquimetroProjetoFinal
         public static bool parkStatus(int hour, int dayOfWeek)
         {
             
-            if (dayOfWeek < 6 && hour >= 9 && hour < 20)
+            if (dayOfWeek > 0 && dayOfWeek < 6 && hour >= 9 && hour < 20)
             {
                 return true;
             }
@@ -30,7 +30,6 @@ namespace ParquimetroProjetoFinal
 
         public static void writeStartMenu(DateTime date)
         {
-            Console.OutputEncoding = Encoding.UTF8;
             Console.Clear();
             Console.WriteLine("  _______________________________________ ");
             Console.WriteLine(" |                                       |");
@@ -63,6 +62,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
                                    $$ |                                                                                             
                                    $$ |                                                                                             
                                    \__|                                                                                             ");
+            Console.WriteLine("Clique 'ESC' para sair");
             
         }
 
@@ -81,6 +81,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
                                    | $$                                                                                             
                                    | $$                                                                                             
                                    |__/                                                                                             ");
+            Console.WriteLine("Clique 'ESC' para sair");
 
         }
 
@@ -99,6 +100,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
                                    | $$                                                                                              
                                    | $$                                                                                              
                                     \$$                                                                                              ");
+            Console.WriteLine("Clique 'ESC' para sair");
         }
 
         public static void parkClosed4()
@@ -116,13 +118,18 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
                                    $$ |                                                                                             
                                    $$ |                                                                                             
                                    $$/                                                                                              ");
+            Console.WriteLine("Clique 'ESC' para sair");
         }
 
 
         public static void parkAnimation()
         {
+            
             var timespan = 500;
-            while(true) {
+
+            ConsoleKeyInfo input;
+            do
+            {
                 parkClosed1();
                 Thread.Sleep(timespan);
                 parkClosed2();
@@ -131,7 +138,15 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
                 Thread.Sleep(timespan);
                 parkClosed4();
                 Thread.Sleep(timespan);
-            }
+                input = Console.ReadKey();
+            } while (input.Key != ConsoleKey.Escape);
+
+
+
+           
+                
+                
+            
             
         }
 
@@ -369,16 +384,46 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
         }
 
 
-        public static void writeCarsList(List<Car> cars, int numberOfCars)
+        public static void cantPark(Zonas z)
+        {
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("  _______________________________________ ");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine($" |--------         Zona {z.Id}        --------|");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine($"                            ");
+            Console.WriteLine($" |           A Zona {z.Id} está totalmente ocupada                          |");
+            Console.WriteLine($"                              ");
+            Console.WriteLine(" |                                       |");
+            Console.WriteLine(" |    1.Estacionar         2.Voltar      |");
+            Console.WriteLine(" _________________________________________");
+            Console.WriteLine("Escolha a opção pretendida -> ");
+        }
+
+
+        public static void writeCarsList(List<Car> cars, int numberOfCars, Zonas zona)
         {
             
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Lista de Carros nesta Zona: ");
             Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < numberOfCars; i++)
             {
                 Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
+                if (cars[i].ParkingTime> zona.MaxTimeInMs)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Tempo de estacionamento excedido \n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                } else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Dentro do tempo regulamentar \n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
         }
 
