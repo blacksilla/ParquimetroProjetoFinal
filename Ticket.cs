@@ -40,7 +40,7 @@ namespace ParquimetroProjetoFinal
             bool paymentMenu = true;
 
             //dá à zona 3 um limite, neste caso, a hora de fecho
-            if (timeLimit == 0 && hour>9)
+            if (timeLimit == 0 && hour>=9)
             {
                 switch (day)
                 {
@@ -132,7 +132,6 @@ namespace ParquimetroProjetoFinal
                         if (saldo > (timeLimit / 60 )* pricePerHour)
                         {
                             possibleParkingTime = timeLimit / 60;
-                            paymentMenu = false;
                             troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
                             Console.WriteLine($"O troco é {troco}€");
                             string license = getLicense();
@@ -141,12 +140,13 @@ namespace ParquimetroProjetoFinal
                         }
                         else //deverá ser elseif, ver melhor
                         {
-                            paymentMenu = false;
                             troco = 0;
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
                         }
+                        paymentMenu = false;
+                        break;
 
                     case "R" or "r":
                         //reset das variáveis

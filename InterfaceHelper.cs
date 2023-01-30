@@ -35,7 +35,7 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine(" |--------      Bem-vindo        --------|");
             Console.WriteLine(" |--------  Sistema Parquimetro  --------|");
             Console.Write($" |         ");
-            Console.ForegroundColor= ConsoleColor.Blue;
+            Console.ForegroundColor=ConsoleColor.Blue;
             Console.Write($"{date.ToString()}");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("           | \n");
