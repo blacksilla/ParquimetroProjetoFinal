@@ -91,7 +91,7 @@ namespace ParquimetroProjetoFinal
                     {
                         Console.WriteLine($"O saldo é {Math.Round(saldo,2)}€ e a moeda introduzida foi {moeda}€.");
 
-                        if (saldo > pricePerHour || possibleParkingTime * 60 > timeLimit) 
+                        if (saldo > pricePerHour/60 * timeLimit || possibleParkingTime * 60 > timeLimit) 
                         {
                             Console.WriteLine($"O tempo de estacionamento é {timeLimit} minutos");
                             wannaPay = true;
@@ -137,6 +137,7 @@ namespace ParquimetroProjetoFinal
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
+                            paymentMenu = false;
                         }
                         else //deverá ser elseif, ver melhor
                         {
@@ -144,13 +145,16 @@ namespace ParquimetroProjetoFinal
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
+                            paymentMenu = false;
                         }
                         paymentMenu = false;
                         break;
 
                     case "R" or "r":
-                        //reset das variáveis
-                        PaymentNchange(z, day, hour);
+                        saldo = 0;
+                        possibleParkingTime = 0;
+                        wannaPay = false;
+                        paymentMenu = true;
                         break;
 
                     default: 
