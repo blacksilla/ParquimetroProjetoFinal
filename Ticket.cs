@@ -26,6 +26,7 @@ namespace ParquimetroProjetoFinal
         public double PayedQT { get => payedQT; set => payedQT = value; }
         public DateTime DataLeave { get => dataLeave; set => dataLeave = value; }
 
+        //o método mais importante, trata de receber moedas e fazer pagamentos consoante a zona
         public static Ticket PaymentNchange(Zonas z,int day,int hour)
 		{
 			double saldo = 0;
@@ -164,6 +165,7 @@ namespace ParquimetroProjetoFinal
             return null;
         }
 
+        //um metodo para pedir ao utilizador uma matricula, string simples sem verificação
         public static string getLicense()
         {
             Console.WriteLine("Insira a sua matrícula no formato XX-00-YY");

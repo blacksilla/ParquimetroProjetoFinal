@@ -19,6 +19,8 @@ namespace ParquimetroProjetoFinal
         public string LicensePlate { get => licensePlate; set => licensePlate = value; }
         public double ParkingTime { get => parkingTime; set => parkingTime = value; }
 
+
+        //retorna uma marca de carro random
         public static string randomCarBrand()
         {
             List<string> carBrand = new List<string>();
@@ -49,14 +51,13 @@ namespace ParquimetroProjetoFinal
             
         }
 
+        //retorna uma matricula random
         public static string returnRandomLicense()
         {
 
             int lengthLetter = 4;
             int lengthNumber = 2;
 
-            // creating a StringBuilder object()
-            //StringBuilder str_build = new StringBuilder();
             Random random = new Random();
             Random randomInt = new Random();
 
@@ -89,14 +90,14 @@ namespace ParquimetroProjetoFinal
             licensePlateList.Add(randomLicense[3]);
 
 
-            //return licensePlateList;
+            //formato da matricula
             string licensePlate = randomLicense[0] + randomLicense[1] +"-"+ randomLicense[4] + randomLicense[5] +"-"+ randomLicense[2] + randomLicense[3];
 
             return licensePlate;
 
         }
 
-
+        //retorna lista de objetos carro para cada lugar ocupado , int numberOfCars é o numero de ocupados em cada zona
         public static List<Car> returnParkedCars(int numberOfCars)
         {
             List<Car> cars = new List<Car>();

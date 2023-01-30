@@ -25,8 +25,7 @@ namespace ParquimetroProjetoFinal
             else return false;
         }
 
-        //falta criar interface do ticket
-        //falta criar interface do estacionamento - ver Classe Zonas
+       //ecrã inicial do programa
 
         public static void writeStartMenu(DateTime date)
         {
@@ -48,6 +47,7 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine("Escolha a opção pretendida -> ");
         }
 
+        //parte 1 da animação do parque fechado
         public static void parkClosed1()
         {
             Console.Clear();
@@ -66,7 +66,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
             
         }
 
-
+        //parte 2 da animação do parque fechado
         public static void parkClosed2()
         {
             Console.Clear();
@@ -84,7 +84,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
             Console.WriteLine("Clique 'ESC' para sair");
 
         }
-
+        //parte 3 da animação do parque fechado
         public static void parkClosed3()
         {
             Console.Clear();
@@ -102,7 +102,7 @@ $$ |     \$$$$$$$ |$$ |      \$$$$$$$ |\$$$$$$  |\$$$$$$$\       $$ |   \$$$$$$$
                                     \$$                                                                                              ");
             Console.WriteLine("Clique 'ESC' para sair");
         }
-
+        //parte 4 da animação do parque fechado
         public static void parkClosed4()
         {
             Console.Clear();
@@ -121,7 +121,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine("Clique 'ESC' para sair");
         }
 
-
+        //junção das 4 partes para animar as letras, espera um ESC para voltar ao menu
         public static void parkAnimation()
         {
             
@@ -150,6 +150,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             
         }
 
+        //escreve o menu administrador
         public static void writeAdminMenu()
         {
             Console.Clear();
@@ -166,6 +167,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine("Escolha a opção pretendida -> ");
         }
 
+        //escreve o menu cliente
         public static void writeClientMenu()
         {
             Console.Clear();
@@ -182,6 +184,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine("Escolha a opção pretendida -> ");
         }
 
+        //metodo para garantir que o input é um inteiro, retorna -1 porque não faz parte dos menus, entra no default
         public static int returnIndexInput()
         {
             var Inputstate = int.TryParse(Console.ReadLine(), out var indexInput);
@@ -192,6 +195,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             return-1;
         }
 
+        //escreve uma mensagem de erro caso o input esteja fora do menu, triggered para quando o metodo de cima retorna -1
         public static void errorMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -201,7 +205,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.ReadLine();
         }
 
-
+        //mostra o preço, lugares totais e lugares disponiveis das 3 zonas ao mesmo tempo
         public static void showZonas(Zonas z1,Zonas z2,Zonas z3, int occ1, int occ2, int occ3)
         {
             Console.Clear();
@@ -218,6 +222,8 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(" |                                                             |");
             Console.WriteLine("  _____________________________________________________________");
         }
+
+        //mostra o valor total das zonas e de cada zona individualmente
         public static void showMachines(double total1,double total2,double total3,int spots1,int spots2,int spots3)
         {
             Console.Clear();
@@ -237,8 +243,21 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine("  _____________________________________________________________"); 
         }
 
+        //animação simples de blocos a empilharem
+        public static void processingAnimation()
+        {
+            Console.Clear();
+            Console.Write("Processando...");
+            for (int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(400);
+                Console.Write(" █ ");
+            }
+            Thread.Sleep(200);
+            Console.Clear();
+        }
 
-        //faz a animação de processar e depois imprime o ticket
+        //faz a animação de processar e depois imprime o ticket, mostrando a Zona, hora de entrada/saida, montante gasto e a matricula do veiculo
         public static void printTicket(Ticket t)
         {
             processingAnimation();
@@ -288,7 +307,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
 
         }   
 
-        //imprime o parque
+        //imprime o parque com extremidades superior e inferior, onde há carros com blocos brancos e onde está vazio, fica apenas vazio
         public static void printPark(List<int> lista)
         {
             int maxCol = 10;
@@ -335,6 +354,8 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.Write("+\n");
             
         }
+
+        //escreve um menu para o utilizador escolher a zona que quer estacionar
         public static void writeZonas()
         {
             Console.Clear();
@@ -352,20 +373,8 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
 
         }
 
-        //animação simples de blocos a empilharem
-        public static void processingAnimation()
-        {
-            Console.Clear();
-            Console.Write("Processando...");
-                for(int i = 0; i < 10; i++)
-            {
-                Thread.Sleep(400);
-                Console.Write(" █ ");
-            }
-            Thread.Sleep(200);
-            Console.Clear();
-        }
 
+        //menu seguinte ao writeZonas() que mostra um pouco de info sobre a zona que vão estacionar, nada como redundância :D
         public static void printZone(Zonas z)
         {
 
@@ -383,7 +392,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine("Escolha a opção pretendida -> ");
         }
 
-
+        //desenha ecrã caso não haja mais lugares disponíveis na zona para estacionar
         public static void cantPark(Zonas z)
         {
 
@@ -404,7 +413,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.ReadLine();
         }
 
-
+        //no historico do Admin, escreve a lista de carros na zona com marca, matricula e tempo de estacionamento; mostra também se o estão dentro ou fora do limite de tempo
         public static void writeCarsList(List<Car> cars, int numberOfCars, Zonas zona)
         {
             
@@ -429,7 +438,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             }
         }
 
-
+        //desenha o histórico de bilhetes que o utilizador tem
         public static void drawTickets(List <Ticket> tickets)
         {
 

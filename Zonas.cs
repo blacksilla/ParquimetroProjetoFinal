@@ -52,21 +52,8 @@ namespace ParquimetroProjetoFinal
                 if (filledSpots[i] == 1)
                     occSpots++;
                
-            }
-            
-            
-
-            
-            //precisa ser reformulado
-           
-
-
-            
-            
-
-
-            return filledSpots;
-            //tem que retornar a lista para desenhar o parque
+            }   return filledSpots;
+            //retorna a lista para desenhar o parque
         }
 
 
