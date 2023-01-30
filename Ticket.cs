@@ -91,7 +91,7 @@ namespace ParquimetroProjetoFinal
                     {
                         Console.WriteLine($"O saldo é {Math.Round(saldo,2)}€ e a moeda introduzida foi {moeda}€.");
 
-                        if (saldo > pricePerHour/60 * timeLimit || possibleParkingTime * 60 > timeLimit) 
+                        if (saldo >= pricePerHour/60 * timeLimit || possibleParkingTime * 60 > timeLimit) 
                         {
                             Console.WriteLine($"O tempo de estacionamento é {timeLimit} minutos");
                             wannaPay = true;
