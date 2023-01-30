@@ -394,12 +394,14 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine($" |--------         Zona {z.Id}        --------|");
             Console.WriteLine(" |                                       |");
             Console.WriteLine($"                            ");
-            Console.WriteLine($" |           A Zona {z.Id} está totalmente ocupada                          |");
+            Console.WriteLine($" |    A Zona {z.Id} está totalmente ocupada   |");
             Console.WriteLine($"                              ");
             Console.WriteLine(" |                                       |");
-            Console.WriteLine(" |    1.Estacionar         2.Voltar      |");
+            Console.WriteLine(" |                                       |");
             Console.WriteLine(" _________________________________________");
-            Console.WriteLine("Escolha a opção pretendida -> ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Prima Enter para voltar ");
+            Console.ReadLine();
         }
 
 

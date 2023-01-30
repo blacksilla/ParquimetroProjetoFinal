@@ -130,6 +130,7 @@ namespace ParquimetroProjetoFinal
                     case "C" or "c":
                         if (saldo > (timeLimit / 60 )* pricePerHour)
                         {
+                            possibleParkingTime = timeLimit / 60;
                             paymentMenu = false;
                             troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
                             Console.WriteLine($"O troco é {troco}€");

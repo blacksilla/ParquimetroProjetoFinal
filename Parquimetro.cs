@@ -241,7 +241,10 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona1occ++;
-                                                            carsInZone1.Add(new Car (" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave- Mytickets[Mytickets.Count - 1].DataStart).Minutes));
+                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                            var diffDate = dateEnd - dateStart;
+                                                            carsInZone1.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
@@ -249,7 +252,12 @@ namespace ParquimetroProjetoFinal
                                                         continue;
                                                     default: InterfaceHelper.errorMessage(); continue;
                                                 }
-                                            } 
+                                            }
+                                            else
+                                            {
+                                                InterfaceHelper.cantPark(Zona1);
+                                                
+                                            }
 
 
                                             break;
@@ -272,7 +280,10 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona2occ++;
-                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave - Mytickets[Mytickets.Count - 1].DataStart).Minutes));
+                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                            var diffDate = dateEnd- dateStart;  
+                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         
                                                         break;
@@ -280,6 +291,10 @@ namespace ParquimetroProjetoFinal
                                                         continue;
                                                     default: InterfaceHelper.errorMessage(); continue;
                                                 }
+                                            }
+                                            else
+                                            {
+                                                InterfaceHelper.cantPark(Zona2);
                                             }
 
                                             break;
@@ -302,7 +317,10 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona3occ++;
-                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, (Mytickets[Mytickets.Count - 1].DataLeave - Mytickets[Mytickets.Count - 1].DataStart).Minutes));
+                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                            var diffDate = dateEnd - dateStart;
+                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
@@ -310,6 +328,9 @@ namespace ParquimetroProjetoFinal
                                                         continue;
                                                     default: InterfaceHelper.errorMessage(); continue;
                                                 }
+                                            } else
+                                            {
+                                                InterfaceHelper.cantPark(Zona3);
                                             }
 
                                             break;

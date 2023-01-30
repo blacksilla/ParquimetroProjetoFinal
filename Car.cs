@@ -6,9 +6,9 @@ namespace ParquimetroProjetoFinal
     {
         private string brand;
         private string licensePlate;
-        private int parkingTime;
+        private double parkingTime;
 
-        public Car(string brand, string licensePlate, int parkingTime)
+        public Car(string brand, string licensePlate, double parkingTime)
         {
             this.brand = brand;
             this.licensePlate = licensePlate;
@@ -17,7 +17,7 @@ namespace ParquimetroProjetoFinal
 
         public string Brand { get => brand; set => brand = value; }
         public string LicensePlate { get => licensePlate; set => licensePlate = value; }
-        public int ParkingTime { get => parkingTime; set => parkingTime = value; }
+        public double ParkingTime { get => parkingTime; set => parkingTime = value; }
 
         public static string randomCarBrand()
         {
