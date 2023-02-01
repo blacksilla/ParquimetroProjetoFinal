@@ -38,25 +38,44 @@ namespace ParquimetroProjetoFinal
 
         public static List<int> fillParkingSlots(Zonas zona)
         {
-            int occSpots=0; //variavel guardar quantos lugares ocupados
             
-            
-
-            //lista spots ocupados
-            List<int> filledSpots = new List<int>();
-            //ciclo para popular com 0s (livres) e 1s (ocupados) os lugares
-            for (int i = 0; i < zona.spots; i ++)
-            {
-                filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
-                //InterfaceHelper.printPark(filledSpots);
-                if (filledSpots[i] == 1)
-                    occSpots++;
-               
-            }   return filledSpots;
-            //retorna a lista para desenhar o parque
+                List<int> filledSpots = new List<int>();
+                //ciclo para popular com 0s (livres) e 1s (ocupados) os lugares
+                for (int i = 0; i < zona.spots; i++)
+                {
+                    filledSpots.Add(MathHelper.returnRandomInt(0, 2, 1));
+                }
+                return filledSpots;
+                //retorna a lista para desenhar o parque
         }
 
 
+        //dá update à listra criada em cima, preenchendo o primeiro lugar vazio que encontrar
+        public static List<int> updateParkingSlots(List<int> carParked, int occupied)
+        {
+            var counter = occupied-1;
+
+
+
+
+           
+
+                for (int i = 0; i < carParked.Count && counter<occupied; i++)
+                {
+                    if (carParked[i] == 1)
+                    {
+
+                    }
+                    else
+                    {
+                        carParked[i] = 1;
+                        counter++;
+                    }
+                }
+            
+
+            return carParked;
+        }
 
         
 

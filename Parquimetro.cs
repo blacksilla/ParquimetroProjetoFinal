@@ -39,18 +39,20 @@ namespace ParquimetroProjetoFinal
             Zonas Zona1 = new Zonas(1, 1.15, 45, MathHelper.returnRandomInt(1 , 5 , 10));
             Zonas Zona2 = new Zonas(2, 1, 120, MathHelper.returnRandomInt(1, 5 , 10));
             Zonas Zona3 = new Zonas(3, 0.62, 0, MathHelper.returnRandomInt(1, 5, 10));
-           
+
+            
+
             //Retorna a disposição de cada parque depois de serem gerados os spots de forma aleatoria
             List<int> Zona1Occspots = Zonas.fillParkingSlots(Zona1);
             List<int> Zona2Occspots = Zonas.fillParkingSlots(Zona2);
             List<int> Zona3Occspots = Zonas.fillParkingSlots(Zona3);
 
 
+            
             //garante que o valor dos lugares ocupados é guardado no main
             int Zona1occ = 0;
             int Zona2occ = 0;
             int Zona3occ = 0;
-
             
 
             for (int i = 0; i < Zona1Occspots.Count; i++)
@@ -241,6 +243,7 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona1occ++;
+                                                            Zona1Occspots = Zonas.updateParkingSlots(Zona1Occspots,Zona1occ);
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
                                                             var diffDate = dateEnd - dateStart;
@@ -280,6 +283,7 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona2occ++;
+                                                            Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
                                                             var diffDate = dateEnd- dateStart;  
@@ -317,6 +321,7 @@ namespace ParquimetroProjetoFinal
                                                             Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona3occ++;
+                                                            Zona3Occspots = Zonas.updateParkingSlots(Zona3Occspots, Zona3occ);
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
                                                             var diffDate = dateEnd - dateStart;

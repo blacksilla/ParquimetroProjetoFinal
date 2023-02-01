@@ -416,23 +416,35 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
         //no historico do Admin, escreve a lista de carros na zona com marca, matricula e tempo de estacionamento; mostra também se o estão dentro ou fora do limite de tempo
         public static void writeCarsList(List<Car> cars, int numberOfCars, Zonas zona)
         {
-            
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Lista de Carros nesta Zona: ");
             Console.ForegroundColor = ConsoleColor.White;
+
+          
+
             for (int i = 0; i < numberOfCars; i++)
             {
                 Console.Write($"\n {i + 1}. Marca: {cars[i].Brand}\nMatrícula: {cars[i].LicensePlate}\nTempo Estacionado: {cars[i].ParkingTime} minutos\n");
-                if (cars[i].ParkingTime> zona.MaxTimeInMs)
+                if (zona.MaxTimeInMs != 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Tempo de estacionamento excedido \n");
-                    Console.ForegroundColor = ConsoleColor.White;
-                } else
+                    if (cars[i].ParkingTime > zona.MaxTimeInMs)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Tempo de estacionamento excedido \n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Dentro do tempo regulamentar \n");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
+                else
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Dentro do tempo regulamentar \n");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(@"Se não tem limite, não tem limite ¯\_(ツ)_/¯"+ "\n");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
