@@ -27,7 +27,7 @@ namespace ParquimetroProjetoFinal
         public DateTime DataLeave { get => dataLeave; set => dataLeave = value; }
 
         //o método mais importante, trata de receber moedas e fazer pagamentos consoante a zona
-        public static Ticket PaymentNchange(Zonas z,int day,int hour)
+        public static Ticket PaymentNchange(Zonas z,DateTime dt)
 		{
 			double saldo = 0;
             double troco;
@@ -35,23 +35,38 @@ namespace ParquimetroProjetoFinal
             bool state,wannaPay=false;
             double possibleParkingTime = 0.0;
             DateTime CurrentDate = DateTime.Now;
-
+            int day = (int)dt.DayOfWeek;
             double timeLimit = z.MaxTimeInMs;
+            double maxTimeOnTheDay=0;
             bool paymentMenu = true;
 
             //dá à zona 3 um limite, neste caso, a hora de fecho
-            if (timeLimit == 0 && hour>=9)
+
+            
+
+            if (dt.Hour>=9)
             {
                 switch (day)
                 {
-                    case 1: case 2: case 3: case 4:case 5:
-                        timeLimit = (20 - hour)*60;
+                    case 1: case 2: case 3: case 4: case 5:
+                        maxTimeOnTheDay = (20 - dt.Hour)*60 - dt.Minute;
                         break;
                     case 6:
-                        timeLimit = (14 - hour) * 60;
+                        maxTimeOnTheDay = (14 - dt.Hour) * 60 - dt.Minute;
                         break;
                 }
             }
+
+            if(timeLimit==0 || timeLimit > maxTimeOnTheDay)
+            {
+                timeLimit = maxTimeOnTheDay;
+            }else
+            {
+                timeLimit = z.MaxTimeInMs;
+            }
+
+            
+
             double pricePerHour = z.Preco;
             
             Console.WriteLine($"O preço da Zona {z.Id} é {pricePerHour}€/hora e o tempo máximo de estacionamento são de {timeLimit} minutos");
@@ -91,7 +106,7 @@ namespace ParquimetroProjetoFinal
                     {
                         Console.WriteLine($"O saldo é {Math.Round(saldo,2)}€ e a moeda introduzida foi {moeda}€.");
 
-                        if (saldo >= pricePerHour/60 * timeLimit || possibleParkingTime * 60 > timeLimit) 
+                        if (saldo >= pricePerHour / 60 * timeLimit || possibleParkingTime * 60 > timeLimit) 
                         {
                             Console.WriteLine($"O tempo de estacionamento é {timeLimit} minutos");
                             wannaPay = true;
@@ -137,7 +152,7 @@ namespace ParquimetroProjetoFinal
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
-                            paymentMenu = false;
+                            
                         }
                         else //deverá ser elseif, ver melhor
                         {
@@ -145,10 +160,8 @@ namespace ParquimetroProjetoFinal
                             string license = getLicense();
                             Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
                             return myticket;
-                            paymentMenu = false;
+                            
                         }
-                        paymentMenu = false;
-                        break;
 
                     case "R" or "r":
                         saldo = 0;

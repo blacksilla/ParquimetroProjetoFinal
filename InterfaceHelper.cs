@@ -260,6 +260,9 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
         //faz a animação de processar e depois imprime o ticket, mostrando a Zona, hora de entrada/saida, montante gasto e a matricula do veiculo
         public static void printTicket(Ticket t)
         {
+            var dts = t.DataStart.ToString("dd/MM/yyyy HH:mm");
+            var dtl = t.DataLeave.ToString("dd/MM/yyyy HH:mm");
+
             processingAnimation();
             int waitTime=500;
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -278,10 +281,10 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
             Console.WriteLine(@"|      /__________+__________\                                           |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {t.DataStart} |");
+            Console.WriteLine($@"|     /    (#############)    \     Hora de Entrada: {dts}    |");
             Thread.Sleep(waitTime);
             Console.Beep();
-            Console.WriteLine($@"|    | [**](#############)[**] |    Hora de Saída: {t.DataLeave}   |");
+            Console.WriteLine($@"|    | [**](#############)[**] |    Hora de Saída: {dtl}      |");
             Thread.Sleep(waitTime);
             Console.Beep();
             Console.WriteLine($@"      \_______________________/     Montante: {Math.Round(t.PayedQT,2)}€                      ");

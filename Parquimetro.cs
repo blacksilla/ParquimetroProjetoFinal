@@ -240,7 +240,7 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDayofTheWeek, CurrentHour));
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDate));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona1occ++;
                                                             Zona1Occspots = Zonas.updateParkingSlots(Zona1Occspots,Zona1occ);
@@ -280,7 +280,7 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDayofTheWeek, CurrentHour));
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDate));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona2occ++;
                                                             Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
@@ -318,7 +318,7 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDayofTheWeek, CurrentHour));
+                                                            Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDate));
                                                             InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
                                                             Zona3occ++;
                                                             Zona3Occspots = Zonas.updateParkingSlots(Zona3Occspots, Zona3occ);
