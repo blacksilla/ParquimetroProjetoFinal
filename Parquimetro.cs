@@ -247,7 +247,7 @@ namespace ParquimetroProjetoFinal
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
                                                             var diffDate = dateEnd - dateStart;
-                                                            carsInZone1.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            carsInZone1.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;

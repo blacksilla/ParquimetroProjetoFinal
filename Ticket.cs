@@ -187,6 +187,24 @@ namespace ParquimetroProjetoFinal
         {
             Console.WriteLine("Insira a sua matrícula no formato XX-00-YY");
             string license = Console.ReadLine();
+
+            //garantir que os caracteres ficam separados e em CAPS
+            char[] allCLicense = license.ToUpper().ToCharArray();
+            
+
+            //se for escrito qualquer coisa random, ele gera uma matricula automaticamente
+            if(allCLicense.Length < 6)
+            {
+                license = Car.returnRandomLicense();
+            } else if(allCLicense.Length == 6) //no caso do utilizador por só 6 digitos, ele formata
+            {
+                license = ($"{allCLicense[0]}{allCLicense[1]}-{allCLicense[2]}{allCLicense[3]}-{allCLicense[4]}{allCLicense[5]}" );
+            }
+            else // no caso do utilizador por no formato direito, só garante que fiquem em maiusculas
+            {
+                license = ($"{allCLicense[0]}{allCLicense[1]}-{allCLicense[3]}{allCLicense[4]}-{allCLicense[6]}{allCLicense[7]}");
+            }
+
             return license;
         }
     }
