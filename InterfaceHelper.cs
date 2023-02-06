@@ -458,7 +458,7 @@ $$/       $$$$$$$/ $$/        $$$$$$$ | $$$$$$/   $$$$$$$/       $$/     $$$$$$$
         {
 
             Console.Clear();
-            tickets.ForEach(x => Console.WriteLine($"Ticket {tickets.IndexOf(x) + 1} : Zona {x.Idofzone.Id} - Hora de Entrada:  {x.DataStart} - Hora de Saída:  {x.DataLeave} - Preço Pago: {x.PayedQT}€ - Matrícula: {x.License}  "));
+            tickets.ForEach(x => Console.WriteLine($"Ticket {tickets.IndexOf(x) + 1} : Zona {x.Idofzone.Id} - Hora de Entrada:  {x.DataStart} - Hora de Saída:  {x.DataLeave} - Preço Pago: {Math.Round(x.PayedQT,2)}€ - Matrícula: {x.License}  "));
             Console.WriteLine("Enter para voltar");
             Console.Read();
         }
