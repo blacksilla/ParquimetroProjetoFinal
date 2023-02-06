@@ -32,8 +32,8 @@ namespace ParquimetroProjetoFinal
             Console.Clear();
             Console.WriteLine("  _______________________________________ ");
             Console.WriteLine(" |                                       |");
-            Console.WriteLine(" |--------      Bem-vindo        --------|");
-            Console.WriteLine(" |--------  Sistema Parquimetro  --------|");
+            Console.WriteLine(" |--------      Bem-vindo ao     --------|");
+            Console.WriteLine(" |--------   DotNet Parquimetro  --------|");
             Console.Write($" |         ");
             Console.ForegroundColor=ConsoleColor.Blue;
             Console.Write($"{date.ToString()}");
