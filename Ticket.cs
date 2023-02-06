@@ -39,6 +39,7 @@ namespace ParquimetroProjetoFinal
             double timeLimit = z.MaxTimeInMs;
             double maxTimeOnTheDay=0;
             bool paymentMenu = true;
+            bool goback = false;
 
             //dá à zona 3 um limite, neste caso, a hora de fecho
 
@@ -72,7 +73,7 @@ namespace ParquimetroProjetoFinal
             Console.WriteLine($"O preço da Zona {z.Id} é {pricePerHour}€/hora e o tempo máximo de estacionamento são de {timeLimit} minutos");
             while (paymentMenu)
             {
-                while (Math.Round(possibleParkingTime * 60, 1) <= timeLimit && wannaPay == false)
+                while (Math.Round(possibleParkingTime * 60, 1) <= timeLimit && wannaPay == false && goback==false)
                 {
                     //algoritmo para pedir moeda e calcular saldo
                     Console.WriteLine("Insira a moeda.");
@@ -114,7 +115,7 @@ namespace ParquimetroProjetoFinal
                         else
                         {
                             Console.WriteLine($"O tempo de estacionamento é {Math.Round(possibleParkingTime * 60)} minutos");
-                            Console.WriteLine("Continuar - C || Pagar - P");
+                            Console.WriteLine("Continuar - C || Pagar - P || Voltar - V");
                             var inputPayOrNot = Console.ReadLine();
                             switch (inputPayOrNot)
                             {
@@ -125,6 +126,8 @@ namespace ParquimetroProjetoFinal
                                 case "C" or "c":
                                     wannaPay = false;
                                     break;
+                                case "V" or "v":
+                                    return null;
                                 default: InterfaceHelper.errorMessage(); wannaPay = false; continue;
                             }
                         }
@@ -136,47 +139,54 @@ namespace ParquimetroProjetoFinal
                     }
                 }
 
-
-
-                Console.WriteLine("Confirmar Pagamento - C || Reiniciar - R");
-
-                var input = Console.ReadLine();
-                switch (input)
+                if (goback == false)
                 {
-                    case "C" or "c":
-                        if (saldo > (timeLimit / 60 )* pricePerHour)
-                        {
-                            possibleParkingTime = timeLimit / 60;
-                            troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
-                            Console.WriteLine($"O troco é {troco}€");
-                            string license = getLicense();
-                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
-                            return myticket;
-                            
-                        }
-                        else //deverá ser elseif, ver melhor
-                        {
-                            troco = 0;
-                            string license = getLicense();
-                            Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
-                            return myticket;
-                            
-                        }
 
-                    case "R" or "r":
-                        saldo = 0;
-                        possibleParkingTime = 0;
-                        wannaPay = false;
-                        paymentMenu = true;
-                        break;
+                    Console.WriteLine("Confirmar Pagamento - C || Reiniciar - R || Voltar - V");
 
-                    default: 
-                        saldo = 0;
-                        possibleParkingTime = 0;   
-                        wannaPay = false;
-                        InterfaceHelper.errorMessage();
-                        continue;
+                    var input = Console.ReadLine();
+                    switch (input)
+                    {
+                        case "C" or "c":
+                            if (saldo > (timeLimit / 60) * pricePerHour)
+                            {
+                                possibleParkingTime = timeLimit / 60;
+                                troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
+                                Console.WriteLine($"O troco é {troco}€");
+                                string license = getLicense();
+                                Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
+                                return myticket;
+
+                            }
+                            else //deverá ser elseif, ver melhor
+                            {
+                                troco = 0;
+                                string license = getLicense();
+                                Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
+                                return myticket;
+
+                            }
+
+                        case "R" or "r":
+                            saldo = 0;
+                            possibleParkingTime = 0;
+                            wannaPay = false;
+                            paymentMenu = true;
+                            break;
+
+                        case "V" or "v":
+                            return null;
+
+                        default:
+                            saldo = 0;
+                            possibleParkingTime = 0;
+                            wannaPay = false;
+                            InterfaceHelper.errorMessage();
+                            continue;
+                    }
                 }
+                else
+                    return null;
 
             }
             return null;

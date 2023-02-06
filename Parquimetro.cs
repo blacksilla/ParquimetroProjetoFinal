@@ -240,14 +240,23 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona1, CurrentDate));
-                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                            Zona1occ++;
-                                                            Zona1Occspots = Zonas.updateParkingSlots(Zona1Occspots,Zona1occ);
-                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
-                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                            var diffDate = dateEnd - dateStart;
-                                                            carsInZone1.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            Ticket currentTicket = Ticket.PaymentNchange(Zona1, CurrentDate);
+                                                            if(currentTicket == null)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            else
+                                                            {
+                                                                Mytickets.Add(currentTicket);
+                                                                InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                                Zona1occ++;
+                                                                Zona1Occspots = Zonas.updateParkingSlots(Zona1Occspots, Zona1occ);
+                                                                var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                                var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                                var diffDate = dateEnd - dateStart;
+                                                                carsInZone1.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            }
+                                                            
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
@@ -280,14 +289,22 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona2, CurrentDate));
-                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                            Zona2occ++;
-                                                            Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
-                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
-                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                            var diffDate = dateEnd- dateStart;
-                                                            carsInZone2.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            Ticket currentTicket = Ticket.PaymentNchange(Zona1, CurrentDate);
+                                                            if (currentTicket == null)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            else
+                                                            {
+                                                                Mytickets.Add(currentTicket);
+                                                                InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                                Zona2occ++;
+                                                                Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
+                                                                var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                                var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                                var diffDate = dateEnd - dateStart;
+                                                                carsInZone2.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            }
                                                         }
                                                         
                                                         break;
@@ -318,14 +335,22 @@ namespace ParquimetroProjetoFinal
                                                         }
                                                         else
                                                         {
-                                                            Mytickets.Add(Ticket.PaymentNchange(Zona3, CurrentDate));
-                                                            InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
-                                                            Zona3occ++;
-                                                            Zona3Occspots = Zonas.updateParkingSlots(Zona3Occspots, Zona3occ);
-                                                            var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
-                                                            var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                            var diffDate = dateEnd - dateStart;
-                                                            carsInZone3.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            Ticket currentTicket = Ticket.PaymentNchange(Zona3, CurrentDate);
+                                                            if (currentTicket == null)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            else
+                                                            {
+                                                                Mytickets.Add(currentTicket);
+                                                                InterfaceHelper.printTicket(Mytickets[Mytickets.Count - 1]);
+                                                                Zona3occ++;
+                                                                Zona3Occspots = Zonas.updateParkingSlots(Zona3Occspots, Zona3occ);
+                                                                var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
+                                                                var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
+                                                                var diffDate = dateEnd - dateStart;
+                                                                carsInZone3.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            }
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
