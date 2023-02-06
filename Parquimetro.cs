@@ -286,8 +286,8 @@ namespace ParquimetroProjetoFinal
                                                             Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                            var diffDate = dateEnd- dateStart;  
-                                                            carsInZone2.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            var diffDate = dateEnd- dateStart;
+                                                            carsInZone2.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         
                                                         break;
@@ -325,7 +325,7 @@ namespace ParquimetroProjetoFinal
                                                             var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                             var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
                                                             var diffDate = dateEnd - dateStart;
-                                                            carsInZone3.Add(new Car(" ", Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
+                                                            carsInZone3.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                         }
                                                         //falta transformar num carro e adiciona-lo a lista do parque 
                                                         break;
