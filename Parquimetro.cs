@@ -151,7 +151,7 @@ namespace ParquimetroProjetoFinal
                                     switch (input)
                                     {
                                         case 1:
-                                            //InterfaceHelper.printZone(Zona1);
+                                            //Mostra a disposição do parque, o total angariado, o tamanho, lugares ocupados e respetivos carros
                                             InterfaceHelper.printPark(Zona1Occspots);
                                             Console.WriteLine("                      ZONA 1");
                                             Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone1,2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
@@ -161,7 +161,7 @@ namespace ParquimetroProjetoFinal
                                             Console.WriteLine("Clique Enter para voltar");
                                             break;
                                         case 2:
-                                            //InterfaceHelper.printZone(Zona2);
+                                            //Mostra a disposição do parque, o total angariado, o tamanho, lugares ocupados e respetivos carros
                                             InterfaceHelper.printPark(Zona2Occspots);
                                             Console.WriteLine("                      ZONA 2");
                                             Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone2, 2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
@@ -171,7 +171,7 @@ namespace ParquimetroProjetoFinal
                                             Console.WriteLine("Clique Enter para voltar");
                                             break;
                                         case 3:
-                                            //InterfaceHelper.printZone(Zona3);
+                                            //Mostra a disposição do parque, o total angariado, o tamanho, lugares ocupados e respetivos carros
                                             InterfaceHelper.printPark(Zona3Occspots);
                                             Console.WriteLine("                      ZONA 3");
                                             Console.WriteLine($"Total do dia: {Math.Round(TotalAmountofZone3, 2)}€ || Total das Zonas: {GrandTotalofTheParks}€");
@@ -215,15 +215,17 @@ namespace ParquimetroProjetoFinal
                             switch (input)
                             {
 
-                                case 0:
+                                case 0: //sair
                                     Environment.Exit(0);
-                                    break; //sair
+                                    break; 
+
                                 case 1:
                                     //Estacionar
                                     InterfaceHelper.writeZonas();
                                     input=InterfaceHelper.returnIndexInput();
                                     switch (input)
                                         {
+                                        //confirma que quer estacionar na zona 1
                                         case 1:
                                             if (Zona1.Spots > Zona1occ)
                                             {
@@ -253,12 +255,12 @@ namespace ParquimetroProjetoFinal
                                                                 Zona1Occspots = Zonas.updateParkingSlots(Zona1Occspots, Zona1occ);
                                                                 var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                                 var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                                var diffDate = dateEnd - dateStart;
+                                                                var diffDate = dateEnd - dateStart; //estavam a dar erros de minutos, então decidi separar
                                                                 carsInZone1.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                             }
                                                             
                                                         }
-                                                        //falta transformar num carro e adiciona-lo a lista do parque 
+                                                        
                                                         break;
                                                     case 2:
                                                         continue;
@@ -274,6 +276,7 @@ namespace ParquimetroProjetoFinal
 
                                             break;
                                         case 2:
+                                            //confirma que quer estacionar na zona 2
                                             if (Zona2.Spots > Zona2occ)
                                             {
                                                 InterfaceHelper.printZone(Zona2);
@@ -302,7 +305,7 @@ namespace ParquimetroProjetoFinal
                                                                 Zona2Occspots = Zonas.updateParkingSlots(Zona2Occspots, Zona2occ);
                                                                 var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                                 var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                                var diffDate = dateEnd - dateStart;
+                                                                var diffDate = dateEnd - dateStart; //estavam a dar erros de minutos, então decidi separar
                                                                 carsInZone2.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                             }
                                                         }
@@ -320,6 +323,7 @@ namespace ParquimetroProjetoFinal
 
                                             break;
                                         case 3:
+                                            //confirma que quer estacionar na zona 3
                                             if (Zona3.Spots > Zona3occ)
                                             {
                                                 InterfaceHelper.printZone(Zona3);
@@ -348,7 +352,7 @@ namespace ParquimetroProjetoFinal
                                                                 Zona3Occspots = Zonas.updateParkingSlots(Zona3Occspots, Zona3occ);
                                                                 var dateStart = Mytickets[Mytickets.Count - 1].DataStart;
                                                                 var dateEnd = Mytickets[Mytickets.Count - 1].DataLeave;
-                                                                var diffDate = dateEnd - dateStart;
+                                                                var diffDate = dateEnd - dateStart; //estavam a dar erros de minutos, então decidi separar
                                                                 carsInZone3.Add(new Car(Car.randomCarBrand(), Mytickets[Mytickets.Count - 1].License, diffDate.TotalMinutes));
                                                             }
                                                         }
@@ -381,6 +385,7 @@ namespace ParquimetroProjetoFinal
 
                                 case 3:
                                     /*Ver Históricos*/
+                                    //Desenha o histórico de tickets do cliente
                                     InterfaceHelper.drawTickets(Mytickets);
                                     Console.ReadLine();
                                     break;
@@ -394,11 +399,13 @@ namespace ParquimetroProjetoFinal
                             }
                             
                         }
+                        //animação que "toca" quando o parque está fechado
                         InterfaceHelper.parkAnimation();
                         break;
 
                     case 3: //Opções
-                        Console.WriteLine("A fazer");
+                        Console.Clear();    
+                        Console.WriteLine("Para aceder a esta feature, por favor subscreva ao serviço VIP de apenas 99,99€ por mês \nEnter para voltar");
                         Console.ReadLine();
                         break;
 
