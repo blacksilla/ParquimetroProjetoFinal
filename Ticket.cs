@@ -101,6 +101,7 @@ namespace ParquimetroProjetoFinal
 
                         default:
                             Console.WriteLine("Moeda inválida.");
+                            moeda = -1;
                             break;
                     }
                     if (moeda > 0)
