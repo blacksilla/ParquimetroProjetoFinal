@@ -131,6 +131,54 @@ namespace ParquimetroProjetoFinal
                                 default: InterfaceHelper.errorMessage(); wannaPay = false; continue;
                             }
                         }
+                        if (goback == false)
+                        {
+
+                            Console.WriteLine("Confirmar Pagamento - C || Reiniciar - R || Voltar - V");
+
+                            var input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "C" or "c":
+                                    if (saldo > (timeLimit / 60) * pricePerHour)
+                                    {
+                                        possibleParkingTime = timeLimit / 60;
+                                        troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
+                                        Console.WriteLine($"O troco é {troco}€");
+                                        string license = getLicense();
+                                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
+                                        return myticket;
+
+                                    }
+                                    else //deverá ser elseif, ver melhor
+                                    {
+                                        troco = 0;
+                                        string license = getLicense();
+                                        Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
+                                        return myticket;
+
+                                    }
+
+                                case "R" or "r":
+                                    saldo = 0;
+                                    possibleParkingTime = 0;
+                                    wannaPay = false;
+                                    paymentMenu = true;
+                                    break;
+
+                                case "V" or "v":
+                                    return null;
+
+                                default:
+                                    saldo = 0;
+                                    possibleParkingTime = 0;
+                                    wannaPay = false;
+                                    InterfaceHelper.errorMessage();
+                                    continue;
+                            }
+                        }
+                        else
+                            return null;
 
                     }
                     else
@@ -139,54 +187,7 @@ namespace ParquimetroProjetoFinal
                     }
                 }
 
-                if (goback == false)
-                {
-
-                    Console.WriteLine("Confirmar Pagamento - C || Reiniciar - R || Voltar - V");
-
-                    var input = Console.ReadLine();
-                    switch (input)
-                    {
-                        case "C" or "c":
-                            if (saldo > (timeLimit / 60) * pricePerHour)
-                            {
-                                possibleParkingTime = timeLimit / 60;
-                                troco = Math.Round(saldo - (timeLimit / 60 * pricePerHour), 2);
-                                Console.WriteLine($"O troco é {troco}€");
-                                string license = getLicense();
-                                Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
-                                return myticket;
-
-                            }
-                            else //deverá ser elseif, ver melhor
-                            {
-                                troco = 0;
-                                string license = getLicense();
-                                Ticket myticket = new Ticket(CurrentDate, z, license, saldo - troco, CurrentDate.AddMinutes(Math.Round(possibleParkingTime * 60)));
-                                return myticket;
-
-                            }
-
-                        case "R" or "r":
-                            saldo = 0;
-                            possibleParkingTime = 0;
-                            wannaPay = false;
-                            paymentMenu = true;
-                            break;
-
-                        case "V" or "v":
-                            return null;
-
-                        default:
-                            saldo = 0;
-                            possibleParkingTime = 0;
-                            wannaPay = false;
-                            InterfaceHelper.errorMessage();
-                            continue;
-                    }
-                }
-                else
-                    return null;
+                
 
             }
             return null;
