@@ -9,10 +9,7 @@ namespace ParquimetroProjetoFinal
      public class Zonas
 
     {
-        //criar funcao que desenhe isso na interface - pode ser feito na class da interface
-
-
-        //falta criar variavel para duracao de tempo de carros random estacionados
+        
 
         private int id;
         private double preco;
@@ -34,7 +31,7 @@ namespace ParquimetroProjetoFinal
 
 
 
-        //criar funcao para popular array com 0s e 1s, disponivel/indisponivel
+        //criar ciclo para popular array com 0s e 1s, disponivel/indisponivel
 
         public static List<int> fillParkingSlots(Zonas zona)
         {
