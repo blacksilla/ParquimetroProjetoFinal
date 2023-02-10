@@ -2,7 +2,7 @@
 Este é um repositório para o projeto final de um sistema de parquímetro para a cadeira de Desenvolvimento de Aplicações Web no curso .NET do Requalificar +Digital 2022. O objetivo deste projeto é desenvolver uma aplicação em consola que possa gerir as operações de um parquímetro, incluindo a emissão de tickets e o cálculo de taxas.
 
 ## Classes
-Este projeto possui seis classes principais, **descritas abaixo:**
+Este projeto possui seis classes principais, brevemente **descritas abaixo:**
 
 ### Car
 A classe Car representa um veículo que estacionou no parquímetro. Ela armazena informações como a matrícula do veículo, a hora de entrada e a hora de saída.
