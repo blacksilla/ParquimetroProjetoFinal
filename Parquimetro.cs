@@ -407,6 +407,7 @@ namespace ParquimetroProjetoFinal
                         Console.Clear();    
                         Console.WriteLine("Para aceder a esta feature, por favor subscreva ao serviço VIP de apenas 99,99€ por mês \nEnter para voltar");
                         Console.ReadLine();
+                        Console.WriteLine();
                         break;
 
                     default://Inválido
